@@ -40,7 +40,7 @@ int Graph::addEdge(Vertex v, Vertex u) {
   if (findIterU == vlist.end()) vlist.push_back(u);
 
   auto findIterV = std::find(ulist.begin(), ulist.end(), v);
-  if (findIterV == ulist.end()) uIter->second.push_back(v);
+  if (findIterV == ulist.end()) ulist.push_back(v);
 
 #ifdef NDEBUG
   assert(validate());
