@@ -8,5 +8,5 @@ TEST(CNFParserTest, TestTest) {
   std::string cnf_s = "";
   std::istringstream ss(cnf_s);
   auto cnf = parser.Parse(ss);
-  ASSERT_EQ(cnf.GetDim(), 0);
+  ASSERT_EQ(cnf.GetDim(), 0u);
 }
