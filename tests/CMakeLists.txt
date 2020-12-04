@@ -2,6 +2,7 @@
 set(test_list run_all.cpp
     sat/parser_tests.cpp
     clique/graph_test.cpp
+    clique/clique_test.cpp
 )
 
 add_executable(tests ${test_list})
