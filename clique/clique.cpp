@@ -47,7 +47,7 @@ bool isClique(const Graph &graph) {
   return true;
 }
 
-size_t maxCliqueNaive(const Graph &graph) {
+size_t maxCliqueBruteForce(const Graph &graph) {
   if (isClique(graph)) return graph.size();
 
   auto vertices = graph.vertices();
@@ -67,6 +67,83 @@ size_t maxCliqueNaive(const Graph &graph) {
     }
   }
   return 0;
+}
+}  // namespace graph
+
+namespace {
+// TODO return type of graph API
+template <typename T>
+std::set<T> vectorToSet(const std::vector<T> &vector) {
+  std::set<T> set(vector.begin(), vector.end());
+  return set;
+}
+
+template <typename T>
+std::set<T> listToSet(const std::list<T> &list) {
+  std::set<T> set(list.begin(), list.end());
+  return set;
+}
+
+std::set<graph::Vertex> set_union(const std::set<graph::Vertex> &lhs,
+                                  const std::set<graph::Vertex> &rhs) {
+  std::set<graph::Vertex> sunion;
+  std::set_union(lhs.begin(), lhs.end(), rhs.begin(), rhs.end(),
+                 std::inserter(sunion, sunion.begin()));
+  return sunion;
+}
+
+std::set<graph::Vertex> set_intersection(const std::set<graph::Vertex> &lhs,
+                                         const std::set<graph::Vertex> &rhs) {
+  std::set<graph::Vertex> sintersection;
+  std::set_intersection(lhs.begin(), lhs.end(), rhs.begin(), rhs.end(),
+                        std::inserter(sintersection, sintersection.begin()));
+
+  return sintersection;
+}
+
+std::set<graph::Vertex> set_difference(const std::set<graph::Vertex> &lhs,
+                                       const std::set<graph::Vertex> &rhs) {
+  std::set<graph::Vertex> sdifference;
+  std::set_difference(lhs.begin(), lhs.end(), rhs.begin(), rhs.end(),
+                      std::inserter(sdifference, sdifference.begin()));
+
+  return sdifference;
+}
+
+size_t bronKerbosh(const graph::Graph &graph, std::set<graph::Vertex> compsub,
+                   std::set<graph::Vertex> candidates,
+                   std::set<graph::Vertex> ineligble) {
+  if (candidates.empty() && ineligble.empty()) return compsub.size();
+
+  auto vIt = candidates.begin();
+  size_t maxCliqueSize = 0;
+  while (!candidates.empty() && vIt != candidates.end()) {
+    std::set<graph::Vertex> single = {(*vIt)};
+    auto neighbors = listToSet(graph.adjacentList(*vIt));
+
+    auto size = bronKerbosh(graph, set_union(compsub, single),
+                            set_intersection(candidates, neighbors),
+                            set_intersection(ineligble, neighbors));
+
+    candidates = set_difference(candidates, single);
+    ineligble = set_union(ineligble, single);
+    if (!candidates.empty()) vIt = candidates.begin();
+
+    maxCliqueSize = (maxCliqueSize < size) ? size : maxCliqueSize;
+  }
+  return maxCliqueSize;
+}
+
+}  // namespace
+
+namespace graph {
+
+size_t maxClique(const Graph &graph) {
+  std::set<Vertex> candidates = vectorToSet(graph.vertices());
+  std::set<Vertex> compsub = {};
+  std::set<Vertex> ineligble = {};
+
+  return bronKerbosh(graph, compsub, candidates, ineligble);
 }
 
 }  // namespace graph

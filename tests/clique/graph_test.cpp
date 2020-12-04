@@ -45,5 +45,3 @@ TEST(CliqueTest, GraphTest) {
   EXPECT_FALSE(graph.isAdjacent(0, 1));
   EXPECT_FALSE(graph.isAdjacent(1, 0));
 }
-
-
