@@ -1,11 +1,11 @@
-set(test_list run_all.cpp
-    sat/parser_tests.cpp
+set (test_list run_all.cpp
+               subset/basic.cpp
 )
 
 add_executable(tests ${test_list})
-target_link_libraries(tests gtest)
-
+target_link_libraries(tests gtest sset)
 
 enable_testing()
 
-add_test(CNFParserTest "./tests")
+add_test(Basic "./tests")
+add_test(Basics "./tests")
