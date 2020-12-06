@@ -5,5 +5,7 @@
 int main() {
     auto[cap, elems] = np::Knapsack::CinTest();
     np::Knapsack kp(cap, elems);
-    kp.BruteForce();
+        
+    std::cout << kp.BruteForce() << std::endl;
+    std::cout << kp.BranchAndBound() << std::endl;
 }
