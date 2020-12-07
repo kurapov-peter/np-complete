@@ -9,27 +9,21 @@ void addFromInput(SSet &set) {
 }
 
 int main(int argc, char* argv[]) {
-//	if (argc > 1 && !strcmp(argv[1], "test")) {
-//		std::cout << "tests:\n";
-		//runTests();
-//	}
-//	else if (argc > 2 && !strcmp(argv[1], "file")) {
-//		std::cout << "Run from file: " << argv[2] << "\n";
-		//runFromFile(argc[2]);
-//	}
-//	else
-//	{
-		SSet set;
-		int N;
+	SSet set;
+	if (argc > 1) {
+		set.loadFromFile(argv[1]);
+		set.checkZeroSumSlow();
+	} else {
+		size_t N;
 		std::cin >> N;
 		if (N > 1) {
-			for (int i = 0; i < N; i++) {
+			for (size_t i = 0; i < N; i++) {
 				addFromInput(set);
 			}
-
 			set.print();
 			set.checkZeroSumSlow();
 		}
-//	}
+	}
+
 	return 0;
 }
