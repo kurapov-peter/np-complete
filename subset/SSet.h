@@ -1,9 +1,10 @@
 #ifndef SSET_H
 #define SSET_H
 
+#include <string>
 #include <iostream>
 #include <vector>
-
+#include <fstream>
 
 
 class SSet {
@@ -24,6 +25,24 @@ public:
 
 	bool checkSumSlow(DataType expected);
 	bool checkSumOptimized(DataType expected);
+
+	bool loadFromFile(std::string file_name) {
+		std::ifstream input(file_name);
+
+		if (input.is_open()) {
+			size_t N;
+			input >> N;
+			set_ = std::vector<DataType>(N);
+			for (size_t i = 0; i < N; i++) {
+				input >> set_[i];
+			}
+			input.close();
+			print();
+			return true;
+		}
+		std::cout << "Failed to open file!\n";
+		return false;
+	}
 
 	void print() const {
 		std::cout << "SSet: ";
