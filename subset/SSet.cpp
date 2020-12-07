@@ -2,6 +2,8 @@
 
 bool SSet::checkSumOptimized(DataType expected) {
 	// TODO
+	std::map<std::pair<int, int>, bool> result_table;
+	
 	return true;
 }
 
