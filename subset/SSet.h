@@ -37,7 +37,6 @@ public:
 				input >> set_[i];
 			}
 			input.close();
-			print();
 			return true;
 		}
 		std::cout << "Failed to open file!\n";

@@ -8,7 +8,6 @@ bool SSet::checkSumOptimized(DataType expected) {
 bool SSet::checkSumSlow(DataType expected) {
 	for (size_t i = 1; i <= set_.size(); i++) {
 		if (checkSumOfNSlow(expected, i)) {
-            std::cout << "Found!!!\n";
 			return true;
 		}
 	}

@@ -13,3 +13,4 @@ cd tests && ctest -j`nproc`
 ## Performance testing
 TBD  
 example: ./SAT/sat_bench
+         ./subset/bench_subset
