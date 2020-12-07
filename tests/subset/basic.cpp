@@ -1,4 +1,4 @@
-#include "../../SubSetSum/SSet.h"
+#include "../../subset/SSet.h"
 #include "gtest/gtest.h"
 
 

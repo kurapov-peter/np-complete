@@ -5,6 +5,6 @@ project(np-complete)
 add_subdirectory(googletest)
 add_subdirectory(benchmark)
 
-add_subdirectory(SubSetSum)
+add_subdirectory(subset)
 add_subdirectory(tests)
 add_subdirectory(SAT)

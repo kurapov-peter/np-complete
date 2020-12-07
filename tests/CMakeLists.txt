@@ -8,4 +8,3 @@ target_link_libraries(tests gtest sset)
 enable_testing()
 
 add_test(Basic "./tests")
-add_test(Basics "./tests")
