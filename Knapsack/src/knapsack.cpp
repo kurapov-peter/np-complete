@@ -4,7 +4,7 @@
 #include <queue>
 #include <algorithm>
 
-#include "./knapsack.h"
+#include "../includes/knapsack.h"
 
 namespace np {
 
@@ -43,14 +43,6 @@ size_t Knapsack::BruteForce() {
     }
 
     bf_solution.resize(sol_count);
-
-    std::cout << "max_profit: " << max_profit << std::endl;
-    std::cout << "max_weight: " << max_weight << std::endl;
-
-    for (size_t i = 0; i < bf_solution.size(); i++) {
-        std::cout << bf_solution[i] << " ";
-    }
-    std::cout << std::endl;
 
     return max_profit;
 }
@@ -135,13 +127,6 @@ size_t Knapsack::BranchAndBound() {
         if (v.bound > maxProfit)
             Q.push(v);
     }
-
-    std::cout << "max_profit: " << maxProfit << std::endl;
-    std::cout << "max_weight: " << maxWeight << std::endl;
-    for (auto it = bab_solution.begin(); it < bab_solution.end(); it++) {
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
 
     return maxProfit;
 }
