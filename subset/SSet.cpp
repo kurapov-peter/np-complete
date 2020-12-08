@@ -10,7 +10,6 @@ bool SSet::checkSumOptimized(DataType expected) {
 		if (n > 0) positive_sum += n;
 		if (n < 0) negative_sum += n;
 	}
-	std::cout << "ну шо ебанаврот, погнали нахуй!" << std::endl;
 	return set_.empty() ? false : checkSumOptimizedRecursive(set_.size() - 1, expected);
 }
 
@@ -22,8 +21,8 @@ bool SSet::checkSumOptimizedRecursive(int i, DataType expected) {
 
 std::vector<int> subsetSums(std::vector<int> set)
 {
-        long total = 1<<set.size();    //total number of subsets = size of power set = 2^n
-        std::vector<int> sums(total, 0);
+    long total = 1<<set.size();    //total number of subsets = size of power set = 2^n
+    std::vector<int> sums(total, 0);
     sums[1] = set[0];
     int effectiveBits = 1, prevPowOf2 = 1;
     for (long long i = 2; i < total; ++i)
@@ -47,8 +46,8 @@ bool SSet::checkSumOptimizedHS(DataType expected) {
 	std::vector<DataType> firstlist = subsetSums(firstpart);
 	std::vector<DataType> secondlist = subsetSums(secondpart);
 
-        auto firstit = firstlist.begin();
-        auto secondit = secondlist.begin();
+    auto firstit = firstlist.begin();
+    auto secondit = secondlist.begin();
 
 	std::sort(firstlist.begin(), firstlist.end());
 	std::sort(secondlist.begin(), secondlist.end());
@@ -62,7 +61,7 @@ bool SSet::checkSumOptimizedHS(DataType expected) {
             			return true;
     		}
 	}
-        return false;
+    return false;
 }
 
 bool SSet::checkSumSlow(DataType expected) {
@@ -89,9 +88,6 @@ bool SSet::checkSumOfNRecursive(std::vector<DataType> data, DataType expected, s
 {
     // Current cobination is ready, print it 
     if (index == N) {
-        //for (int j = 0; j < r; j++)
-        //    printf("%d ", data[j]);
-        //printf("\n");
         return sumSet(data) == expected;
     }
 

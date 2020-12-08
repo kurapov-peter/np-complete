@@ -4,22 +4,22 @@
 
 TEST(Optimized, File10True) {
     SSet set;
-    set.loadFromFile("../../tests/input_sets/set_true_10.txt");
+    ASSERT_TRUE(set.loadFromFile("../tests/input_sets/set_true_10.txt"));
     ASSERT_TRUE(set.checkZeroSumOptimized());
 }
 TEST(Optimized, File10False) {
     SSet set;
-    set.loadFromFile("../../tests/input_sets/set_false_10.txt");
+    ASSERT_TRUE(set.loadFromFile("../tests/input_sets/set_false_10.txt"));
     ASSERT_FALSE(set.checkZeroSumOptimized());
 }
 TEST(Optimized, File20True) {
     SSet set;
-    set.loadFromFile("../../tests/input_sets/set_true_20.txt");
+    ASSERT_TRUE(set.loadFromFile("../tests/input_sets/set_true_20.txt"));
     ASSERT_TRUE(set.checkZeroSumOptimized());
 }
 TEST(Optimized, File20False) {
     SSet set;
-    set.loadFromFile("../../tests/input_sets/set_false_20.txt");
+    ASSERT_TRUE(set.loadFromFile("../tests/input_sets/set_false_20.txt"));
     ASSERT_FALSE(set.checkZeroSumOptimized());
 }
 TEST(Optimized, OneNegative10True) {
