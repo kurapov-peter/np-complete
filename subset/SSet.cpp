@@ -1,10 +1,21 @@
 #include "SSet.h"
 
 bool SSet::checkSumOptimized(DataType expected) {
-	// TODO
-	std::map<std::pair<int, int>, bool> result_table;
-	
-	return true;
+	positive_sum = 0;
+	negative_sum = 0;
+	for (auto n : set_)
+	{
+		if (n > 0) positive_sum += n;
+		if (n < 0) negative_sum += n;
+	}
+	std::cout << "ну шо ебанаврот, погнали нахуй!" << std::endl;
+	return set_.empty() ? false : checkSumOptimizedRecursive(set_.size() - 1, expected);
+}
+
+bool SSet::checkSumOptimizedRecursive(int i, DataType expected) {
+	if (i == 0) return set_[i] == expected;
+	if ((expected > positive_sum) || (expected < negative_sum)) return false;
+	return checkSumOptimizedRecursive(i - 1, expected) || (set_[i] == expected) || checkSumOptimizedRecursive(i - 1, expected - set_[i]);
 }
 
 bool SSet::checkSumSlow(DataType expected) {
