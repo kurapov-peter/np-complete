@@ -18,8 +18,10 @@ cd build/knapsack/
 ./bench  
 
 
-## Results of perfomance testing Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz
+## Results of perfomance testing 
 
+Device: Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz  
+  
 ------------------------------------------------------------  
 Benchmark                  Time             CPU   Iterations  
 ------------------------------------------------------------  
