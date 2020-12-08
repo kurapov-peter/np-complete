@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <map>
 
 
 class SSet {
@@ -67,8 +68,12 @@ private:
 
 	bool checkSumOfNSlow(DataType expected, size_t N);
 	bool checkSumOfNRecursive(std::vector<DataType> data, DataType expected, size_t N, size_t index, size_t i);
+	bool checkSumOptimizedRecursive(int i, DataType expected);
 
 	std::vector<DataType> set_;
+
+	std::map<std::pair<int, DataType>, bool> Q_result_table;
+	DataType positive_sum, negative_sum;
 };
 
 

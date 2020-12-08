@@ -1,6 +1,6 @@
 set (test_list run_all.cpp
                subset/bruteforce.cpp
-#              subset/optimized.cpp
+              subset/optimized.cpp
               subset/optHS.cpp
 )
 
@@ -10,4 +10,4 @@ target_link_libraries(tests gtest sset)
 enable_testing()
 
 add_test(BruteForce "./tests")
-#add_test(Optimized "./tests")
+add_test(Optimized "./tests")
