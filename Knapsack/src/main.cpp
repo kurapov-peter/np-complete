@@ -1,6 +1,6 @@
 // Copyright 2020 Ragimov Islam, Pogotovsky Pavel
 
-#include "./knapsack.h"
+#include "../includes/knapsack.h"
 
 int main() {
     auto[cap, elems] = np::Knapsack::CinTest();
