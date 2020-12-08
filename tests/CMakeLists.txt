@@ -1,6 +1,7 @@
 set (test_list run_all.cpp
                subset/bruteforce.cpp
 #              subset/optimized.cpp
+              subset/optHS.cpp
 )
 
 add_executable(tests ${test_list})

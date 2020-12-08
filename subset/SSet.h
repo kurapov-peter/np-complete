@@ -23,8 +23,13 @@ public:
 		return checkSumOptimized(0);
 	}
 
+        bool checkZeroSumOptimizedHS() {
+                return checkSumOptimizedHS(0);
+        }
+
 	bool checkSumSlow(DataType expected);
 	bool checkSumOptimized(DataType expected);
+        bool checkSumOptimizedHS(DataType expected);
 
 	bool loadFromFile(std::string file_name) {
 		std::ifstream input(file_name);
