@@ -20,10 +20,10 @@ bool SSet::checkSumOptimizedRecursive(int i, DataType expected) {
          checkSumOptimizedRecursive(i - 1, expected - set_[i]);
 }
 
-std::vector<int> subsetSums(std::vector<int> set) {
-  long total =
-      1 << set.size();  // total number of subsets = size of power set = 2^n
-  std::vector<int> sums(total, 0);
+std::vector<SSet::DataType> SSet::subsetSums(std::vector<DataType>* set_p) {
+  std::vector<DataType> set = *set_p;
+  long total = 1 << set.size();  // total number of subsets = size of power set = 2^n
+  std::vector<SSet::DataType> sums(total, 0);
   sums[1] = set[0];
   int effectiveBits = 1, prevPowOf2 = 1;
   for (long long i = 2; i < total; ++i) {
@@ -42,8 +42,8 @@ bool SSet::checkSumOptimizedHS(DataType expected) {
   std::vector<DataType> firstpart(set_.begin(), set_.begin() + half_size);
   std::vector<DataType> secondpart(set_.begin() + half_size, set_.end());
 
-  std::vector<DataType> firstlist = subsetSums(firstpart);
-  std::vector<DataType> secondlist = subsetSums(secondpart);
+  std::vector<DataType> firstlist = subsetSums(&firstpart);
+  std::vector<DataType> secondlist = subsetSums(&secondpart);
 
   auto firstit = firstlist.begin();
   auto secondit = secondlist.begin();
@@ -52,11 +52,11 @@ bool SSet::checkSumOptimizedHS(DataType expected) {
   std::sort(secondlist.begin(), secondlist.end());
 
   for (firstit = firstlist.begin(); firstit != firstlist.end(); firstit++) {
-    for (secondit = secondlist.begin(); secondit != secondlist.end();
-         secondit++) {
+    for (secondit = secondlist.begin(); secondit != secondlist.end(); secondit++) {
       if ((*firstit == 0) || (*secondit == 0)) return true;
       int sum = *firstit + *secondit;
       if (sum == expected) return true;
+      else if (sum > expected) break;
     }
   }
   return false;

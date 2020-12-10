@@ -1,25 +1,44 @@
 #include "../../subset/SSet.h"
 #include "gtest/gtest.h"
 
-TEST(OptimizedHS, OPTFile10True) {
+void runTestOptimizedHS(std::string file, bool result) {
   SSet set;
-  ASSERT_TRUE(set.loadFromFile("../tests/input_sets/set_true_10.txt"));
-  ASSERT_TRUE(set.checkZeroSumOptimizedHS());
+  ASSERT_TRUE(set.loadFromFile(file));
+  if (result)
+    ASSERT_TRUE(set.checkZeroSumOptimizedHS());
+  else
+    ASSERT_FALSE(set.checkZeroSumOptimizedHS());
+}
+
+TEST(OptimizedHS, OPTFile10True) {
+  runTestOptimizedHS("../tests/input_sets/set_true_10.txt", true);
 }
 TEST(OptimizedHS, OPTFile10False) {
-  SSet set;
-  ASSERT_TRUE(set.loadFromFile("../tests/input_sets/set_false_10.txt"));
-  ASSERT_FALSE(set.checkZeroSumOptimizedHS());
+  runTestOptimizedHS("../tests/input_sets/set_false_10.txt", false);
+}
+TEST(OptimizedHS, OPTFile15True) {
+  runTestOptimizedHS("../tests/input_sets/set_true_15.txt", true);
+}
+TEST(OptimizedHS, OPTFile15False) {
+  runTestOptimizedHS("../tests/input_sets/set_false_15.txt", false);
 }
 TEST(OptimizedHS, OPTFile20True) {
-  SSet set;
-  ASSERT_TRUE(set.loadFromFile("../tests/input_sets/set_true_20.txt"));
-  ASSERT_TRUE(set.checkZeroSumOptimizedHS());
+  runTestOptimizedHS("../tests/input_sets/set_true_20.txt", true);
 }
 TEST(OptimizedHS, OPTFile20False) {
-  SSet set;
-  ASSERT_TRUE(set.loadFromFile("../tests/input_sets/set_false_20.txt"));
-  ASSERT_FALSE(set.checkZeroSumOptimizedHS());
+  runTestOptimizedHS("../tests/input_sets/set_false_20.txt", false);
+}
+TEST(OptimizedHS, OPTFile25True) {
+  runTestOptimizedHS("../tests/input_sets/set_true_25.txt", true);
+}
+TEST(OptimizedHS, OPTFile25False) {
+  runTestOptimizedHS("../tests/input_sets/set_false_25.txt", false);
+}
+TEST(OptimizedHS, OPTFile30True) {
+  runTestOptimizedHS("../tests/input_sets/set_true_30.txt", true);
+}
+TEST(OptimizedHS, OPTFile30False) {
+  runTestOptimizedHS("../tests/input_sets/set_false_30.txt", false);
 }
 TEST(Optimized, OPTOneNegative10True) {
   SSet set;
