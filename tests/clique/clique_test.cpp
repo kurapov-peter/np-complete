@@ -52,7 +52,7 @@ TEST(CliqueTest, BruteForceSolver) {
 }
 
 TEST(CliqueTest, OptimalSolver) {
-    {
+  {
     auto graph = graph::graphWithClique(5, 2);
     EXPECT_EQ(graph::maxClique(graph), 2);
   }
@@ -71,5 +71,4 @@ TEST(CliqueTest, OptimalSolver) {
     auto graph = graph::graphWithClique(5, 5);
     EXPECT_EQ(graph::maxClique(graph), 5);
   }
-
 }

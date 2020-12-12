@@ -4,12 +4,10 @@
 
 #include "graph.hpp"
 
-namespace graph
-{
+namespace graph {
 
 Graph graphWithClique(size_t graphSize, size_t cliqueSize);
 
-}// namespace graph
-
+}  // namespace graph
 
 #endif
