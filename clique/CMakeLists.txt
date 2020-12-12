@@ -1,6 +1,7 @@
 
 set(SOURCE_CLIQUE   graph.cpp
-                    clique.cpp)
+                    clique.cpp
+                    graph_generator.cpp)
 
 add_library(clique ${SOURCE_CLIQUE})
 
