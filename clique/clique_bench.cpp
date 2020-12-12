@@ -8,19 +8,19 @@
 #include <sstream>
 
 static void BM_cliqueBruteForce(benchmark::State& state) {
-    size_t graphSize = state.range(0);
-    auto cliqueSize = graphSize / 2;
-    auto graph = graph::graphWithClique(graphSize, cliqueSize);
+  size_t graphSize = state.range(0);
+  auto cliqueSize = graphSize / 2;
+  auto graph = graph::graphWithClique(graphSize, cliqueSize);
   for (auto _ : state) {
     graph::maxCliqueBruteForce(graph);
   }
 }
 
 static void BM_clique(benchmark::State& state) {
-    size_t graphSize = state.range(0);
-    auto cliqueSize = graphSize / 2;
-    auto graph = graph::graphWithClique(graphSize, cliqueSize);
-    for (auto _ : state) {
+  size_t graphSize = state.range(0);
+  auto cliqueSize = graphSize / 2;
+  auto graph = graph::graphWithClique(graphSize, cliqueSize);
+  for (auto _ : state) {
     graph::maxClique(graph);
   }
 }
