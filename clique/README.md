@@ -19,3 +19,11 @@ The basic form of the Bron–Kerbosch algorithm is a recursive backtracking algo
 The recursion is initiated by setting R and X to be the empty set and P to be the vertex set of the graph. Within each recursive call, the algorithm considers the vertices in P in turn; if there are no such vertices, it either reports R as a maximal clique (if X is empty), or backtracks. For each vertex v chosen from P, it makes a recursive call in which v is added to R and in which P and X are restricted to the neighbor set N(v) of v, which finds and reports all clique extensions of R that contain v. Then, it moves v from P to X to exclude it from consideration in future cliques and continues with the next vertex in P.
 
 ## Performance comparison
+As a benhmark was choosed a simple 'linked list' with 'cliqued' tail. The size of clique is a half size of the whole graph.
+
+![image info](./misc/graph_example.png)
+
+### Results
+#### Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz
+
+![image info](./misc/comparison.png)
