@@ -26,7 +26,6 @@ static void BM_clique(benchmark::State& state) {
 }
 
 BENCHMARK(BM_cliqueBruteForce)->DenseRange(4, 10, 2);
-BENCHMARK(BM_clique)->DenseRange(4, 10, 2);
-BENCHMARK(BM_clique)->DenseRange(12, 32, 2);
+BENCHMARK(BM_clique)->DenseRange(4, 32, 2);
 
 BENCHMARK_MAIN();
