@@ -85,7 +85,7 @@ bool SSet::checkSumOfNSlow(DataType expected, size_t N) {
    N      ---> Size of a combination to be checked
    index  ---> Current index in data
    i      ---> index of current element in set_     */
-bool SSet::checkSumOfNRecursive(std::vector<DataType> data, DataType expected,
+bool SSet::checkSumOfNRecursive(std::vector<DataType> &data, DataType expected,
                                 size_t N, size_t index, size_t i) {
   // Current cobination is ready, print it
   if (index == N) {

@@ -50,7 +50,7 @@ std::vector<DataType> subsetSums(std::vector<DataType>* set);
   }
 
  private:
-  DataType sumSet(std::vector<DataType> set) {
+  DataType sumSet(std::vector<DataType> &set) {
     DataType sum = 0;
     for (auto el : set) {
       sum += el;
@@ -59,7 +59,7 @@ std::vector<DataType> subsetSums(std::vector<DataType>* set);
   }
 
   bool checkSumOfNSlow(DataType expected, size_t N);
-  bool checkSumOfNRecursive(std::vector<DataType> data, DataType expected,
+  bool checkSumOfNRecursive(std::vector<DataType> &data, DataType expected,
                             size_t N, size_t index, size_t i);
   bool checkSumOptimizedRecursive(int i, DataType expected);
 
