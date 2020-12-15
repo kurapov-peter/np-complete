@@ -11,6 +11,8 @@ cmake .. && make -j`nproc`
 OR
 cd tests && ctest -j`nproc`  
 
+## Set generator
+python3 tests/input_sets/set_generator.py <размер набора> <нижняя граница> <верхняя граница> > файл.txt
 
 ## Performance testing
 TBD  

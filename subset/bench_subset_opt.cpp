@@ -74,6 +74,13 @@ static void BM_subsetOPTFromFile30F(benchmark::State& state) {
     set.checkZeroSumOptimized();
   }
 }
+static void BM_subsetOPTFromFile100(benchmark::State& state) {
+  SSet set;
+  set.loadFromFile("../tests/input_sets/set_100.txt");
+  for (auto _ : state) {
+    set.checkZeroSumOptimized();
+  }
+}
 
 BENCHMARK(BM_subsetOPTFromFile10T);
 BENCHMARK(BM_subsetOPTFromFile10F);
@@ -85,6 +92,7 @@ BENCHMARK(BM_subsetOPTFromFile25T);
 BENCHMARK(BM_subsetOPTFromFile25F);
 BENCHMARK(BM_subsetOPTFromFile30T);
 BENCHMARK(BM_subsetOPTFromFile30F);
+BENCHMARK(BM_subsetOPTFromFile100);
 
 BENCHMARK_MAIN();
 
