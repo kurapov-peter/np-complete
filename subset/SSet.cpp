@@ -14,10 +14,14 @@ bool SSet::checkSumOptimized(DataType expected) {
 }
 
 bool SSet::checkSumOptimizedRecursive(int i, DataType expected) {
-  if (i == 0) return set_[i] == expected;
   if ((expected > positive_sum) || (expected < negative_sum)) return false;
-  return checkSumOptimizedRecursive(i - 1, expected) || (set_[i] == expected) ||
+  if (i == 0) return set_[i] == expected;
+  std::pair<int, DataType> key(i, expected);
+  if (Q_results_map.count(key)) return Q_results_map[key];
+  bool res = checkSumOptimizedRecursive(i - 1, expected) || (set_[i] == expected) ||
          checkSumOptimizedRecursive(i - 1, expected - set_[i]);
+  Q_results_map[key] = res;
+  return res;
 }
 
 std::vector<SSet::DataType> SSet::subsetSums(std::vector<DataType>* set_p) {

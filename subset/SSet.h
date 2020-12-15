@@ -65,7 +65,7 @@ std::vector<DataType> subsetSums(std::vector<DataType>* set);
 
   std::vector<DataType> set_;
 
-  std::map<std::pair<int, DataType>, bool> Q_result_table;
+  std::map<std::pair<int, DataType>, bool> Q_results_map;
   DataType positive_sum, negative_sum;
 };
 
