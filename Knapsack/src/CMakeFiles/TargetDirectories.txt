@@ -1,0 +1,4 @@
+/home/pavel/intel/perf/forked/Knapsack/src/CMakeFiles/edit_cache.dir
+/home/pavel/intel/perf/forked/Knapsack/src/CMakeFiles/rebuild_cache.dir
+/home/pavel/intel/perf/forked/Knapsack/src/CMakeFiles/knapsack.dir
+/home/pavel/intel/perf/forked/Knapsack/src/CMakeFiles/bench.dir
