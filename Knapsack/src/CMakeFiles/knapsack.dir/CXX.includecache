@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pavel/intel/perf/forked/Knapsack/includes/knapsack.h
+stdlib.h
+-
+algorithm
+-
+cmath
+-
+fstream
+-
+iostream
+-
+queue
+-
+tuple
+-
+vector
+-
+
+/home/pavel/intel/perf/forked/Knapsack/src/knapsack.cpp
+algorithm
+-
+queue
+-
+vector
+-
+../includes/knapsack.h
+/home/pavel/intel/perf/forked/Knapsack/includes/knapsack.h
+

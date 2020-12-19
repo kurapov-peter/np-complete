@@ -1,0 +1,2 @@
+/usr/bin/ar qc libknapsack.a  CMakeFiles/knapsack.dir/knapsack.o
+/usr/bin/ranlib libknapsack.a
