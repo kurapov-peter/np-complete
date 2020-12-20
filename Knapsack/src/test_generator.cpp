@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
-#include <iostream>
 #include <random>
 #include <tuple>
 
@@ -48,8 +47,6 @@ std::vector<np::KItem> GenSimpleTest(size_t n, size_t capacity,
   srand(static_cast<unsigned int>(time(0)));
   size_t answer_size = 2 + (std::rand() % static_cast<int>(n / 2));
   auto [res, min_profit] = GenSimpleAnswer(answer_size, capacity, res_profit);
-
-  std::cout << answer_size << std::endl;
 
   np::KItem item;
   for (size_t i = 0; i < n - answer_size; i++) {
@@ -101,7 +98,7 @@ std::vector<np::KItem> GenRandomTest(size_t n, size_t capacity,
   }
 
   std::ofstream output;
-  output.open(fname + "ip" + std::to_string(n));
+  output.open(fname + "_ip" + std::to_string(n));
   output << capacity << "\n" << n << "\n";
   for (auto it = res.begin(); it != res.end(); it++) {
     output << it->weight << " " << it->profit << "\n";
