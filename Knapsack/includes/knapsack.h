@@ -8,14 +8,9 @@
 #include <queue>
 #include <tuple>
 #include <vector>
+#include "common.h"
 
 namespace np {
-
-struct KItem {
-  int weight = 0;
-  int profit = 0;
-  int id;
-};
 
 struct BABNode {
   int level = -1;
