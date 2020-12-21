@@ -18,14 +18,28 @@ static const std::unordered_map<std::size_t, std::string> trace_mapping = {
     {10, "../GraphColoring/traces/input_fc_v10.txt"}
 };
 
+static std::unordered_map<std::size_t, Graph> graph_mapping;
+
+class GraphBenchmarkFixture : public benchmark::Fixture
+{
+public:
+    void SetUp([[maybe_unused]]const ::benchmark::State& state)
+    {
+        for (const auto [num_colors, trace] : trace_mapping)
+        {
+            std::ifstream ifs(trace);
+            ifs >> graph_mapping[num_colors];
+        }
+    }
+
+    void TearDown([[maybe_unused]]const ::benchmark::State& state) {}
+};
+
+
+
 static int get_chromatic_number(std::size_t num_vertices, bool use_brute_force = false)
 {
-    const std::string trace = trace_mapping.at(num_vertices);
-
-    std::ifstream ifs(trace);
-
-    Graph graph;
-    ifs >> graph;
+    const auto graph = graph_mapping.at(num_vertices);
 
     [[maybe_unused]] std::size_t chromatic_number;
 
@@ -38,20 +52,22 @@ static int get_chromatic_number(std::size_t num_vertices, bool use_brute_force =
 }
 
 
-static void GraphColoring_BruteForceChromaticNumber(benchmark::State& state) {
+BENCHMARK_DEFINE_F(GraphBenchmarkFixture, GraphColoring_BruteForceChromaticNumber)(benchmark::State& state) {
     for (auto _ : state) {
         get_chromatic_number(state.range(0), true);
     }
 }
 
-static void GraphColoring_LawlerChromaticNumber(benchmark::State& state) {
+BENCHMARK_DEFINE_F(GraphBenchmarkFixture, GraphColoring_LawlerChromaticNumber)(benchmark::State& state) {
     for (auto _ : state) {
         get_chromatic_number(state.range(0), false);
     }
 }
 
 
-BENCHMARK(GraphColoring_BruteForceChromaticNumber)->DenseRange(4, 10, 1);
-BENCHMARK(GraphColoring_LawlerChromaticNumber)->DenseRange(4, 10, 1);
+BENCHMARK_REGISTER_F(GraphBenchmarkFixture,
+                     GraphColoring_BruteForceChromaticNumber)->DenseRange(4, 10, 1);
+BENCHMARK_REGISTER_F(GraphBenchmarkFixture,
+                     GraphColoring_LawlerChromaticNumber)->DenseRange(4, 10, 1);
 
 BENCHMARK_MAIN();
