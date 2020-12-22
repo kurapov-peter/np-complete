@@ -24,9 +24,8 @@ bool SSet::checkSumOptimizedRecursive(int i, DataType expected) {
   return res;
 }
 
-std::vector<SSet::DataType> SSet::subsetSums(std::vector<DataType>* set_p) {
-  std::vector<DataType> set = *set_p;
-  long total = 1 << set.size();  // total number of subsets = size of power set = 2^n
+std::vector<SSet::DataType> SSet::subsetSums(const std::vector<DataType>& set) {
+  long long total = 1 << set.size();  // total number of subsets = size of power set = 2^n
   std::vector<SSet::DataType> sums(total, 0);
   sums[1] = set[0];
   int effectiveBits = 1, prevPowOf2 = 1;
@@ -42,12 +41,12 @@ std::vector<SSet::DataType> SSet::subsetSums(std::vector<DataType>* set_p) {
 }
 
 bool SSet::checkSumOptimizedHS(DataType expected) {
-  int half_size = set_.size() / 2;
+  std::size_t half_size = set_.size() / 2;
   std::vector<DataType> firstpart(set_.begin(), set_.begin() + half_size);
   std::vector<DataType> secondpart(set_.begin() + half_size, set_.end());
 
-  std::vector<DataType> firstlist = subsetSums(&firstpart);
-  std::vector<DataType> secondlist = subsetSums(&secondpart);
+  std::vector<DataType> firstlist = subsetSums(firstpart);
+  std::vector<DataType> secondlist = subsetSums(secondpart);
 
   auto firstit = firstlist.begin();
   auto secondit = secondlist.begin();
@@ -58,20 +57,18 @@ bool SSet::checkSumOptimizedHS(DataType expected) {
   for (firstit = firstlist.begin(); firstit != firstlist.end(); firstit++) {
     for (secondit = secondlist.begin(); secondit != secondlist.end(); secondit++) {
       if ((*firstit == 0) || (*secondit == 0)) return true;
-      int sum = *firstit + *secondit;
+      DataType sum = *firstit + *secondit;
       if (sum == expected) return true;
-      else if (sum > expected) break;
+      if (sum > expected) break;
     }
   }
   return false;
 }
 
 bool SSet::checkSumSlow(DataType expected) {
-  for (size_t i = 1; i <= set_.size(); i++) {
-    if (checkSumOfNSlow(expected, i)) {
+  for (size_t i = 1; i <= set_.size(); i++)
+    if (checkSumOfNSlow(expected, i))
       return true;
-    }
-  }
   // Kept you waiting, huh?
   return false;
 }
@@ -88,22 +85,22 @@ bool SSet::checkSumOfNSlow(DataType expected, size_t N) {
 bool SSet::checkSumOfNRecursive(std::vector<DataType> &data, DataType expected,
                                 size_t N, size_t index, size_t i) {
   // Current cobination is ready, print it
-  if (index == N) {
+  if (index == N)
     return sumSet(data) == expected;
-  }
 
   // When no more elements are there to put in data[]
-  if (i >= set_.size()) {
+  if (i >= set_.size())
     return false;
-  }
 
   // current is included, put next at next location
   data[index] = set_[i];
-  if (checkSumOfNRecursive(data, expected, N, index + 1, i + 1)) return true;
+  if (checkSumOfNRecursive(data, expected, N, index + 1, i + 1))
+    return true;
 
   // current is excluded, replace it with next
   // (Note that i+1 is passed, but index is not
   // changed)
-  if (checkSumOfNRecursive(data, expected, N, index, i + 1)) return true;
+  if (checkSumOfNRecursive(data, expected, N, index, i + 1))
+    return true;
   return false;
 }

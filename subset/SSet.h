@@ -18,7 +18,8 @@ class SSet {
   bool checkZeroSumOptimized() { return checkSumOptimized(0); }
 
   bool checkZeroSumOptimizedHS() { return checkSumOptimizedHS(0); }
-std::vector<DataType> subsetSums(std::vector<DataType>* set);
+
+  std::vector<DataType> subsetSums(const std::vector<DataType>& set);
 
   bool checkSumSlow(DataType expected);
   bool checkSumOptimized(DataType expected);
