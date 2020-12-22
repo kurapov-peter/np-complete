@@ -5,14 +5,12 @@
 #include <fstream>
 #include <random>
 #include <tuple>
-
-#include "../includes/test_generator.h"
+#include "../includes/knapsack.h"
 
 namespace Tests {
 
-std::tuple<std::vector<np::KItem>, size_t, size_t, size_t> GenSimpleAnswer(size_t n,
-                                                           size_t max_elem_weight,
-                                                           size_t max_elem_profit) {
+std::tuple<std::vector<np::KItem>, size_t, size_t, size_t> GenSimpleAnswer(
+    size_t n, size_t max_elem_weight, size_t max_elem_profit) {
   std::vector<np::KItem> res;
   res.reserve(n);
   size_t total_weight = 0;
@@ -33,11 +31,13 @@ std::tuple<std::vector<np::KItem>, size_t, size_t, size_t> GenSimpleAnswer(size_
   return std::make_tuple(res, min_elem_profit, total_weight, total_profit);
 }
 
-std::vector<np::KItem> GenSimpleTest(size_t n, size_t max_elem_weight,
-                                     size_t max_elem_profit, std::string fname) {
+std::tuple<std::vector<np::KItem>, size_t, size_t> GenSimpleTest(
+    size_t n, size_t max_elem_weight, size_t max_elem_profit,
+    std::string fname) {
   srand(static_cast<unsigned int>(time(0)));
   size_t answer_size = 2 + (std::rand() % static_cast<int>(n / 2));
-  auto [res, min_profit, capacity, res_profit] = GenSimpleAnswer(answer_size, max_elem_weight, max_elem_profit);
+  auto [res, min_profit, capacity, res_profit] =
+      GenSimpleAnswer(answer_size, max_elem_weight, max_elem_profit);
 
   np::KItem item;
   for (size_t i = 0; i < n - answer_size; i++) {
@@ -46,7 +46,7 @@ std::vector<np::KItem> GenSimpleTest(size_t n, size_t max_elem_weight,
       item.weight = capacity + 1 + rand() % capacity;
       item.profit = rand() % res_profit;
     } else {
-      item.weight = rand() % max_elem_weight;
+      item.weight = max_elem_weight + rand() % capacity;
       item.profit = rand() % min_profit;
     }
     res.push_back(item);
@@ -72,7 +72,7 @@ std::vector<np::KItem> GenSimpleTest(size_t n, size_t max_elem_weight,
   ifile.close();
   ofile.close();
 
-  return res;
+  return std::make_tuple(res, res_profit, capacity);
 }
 
 std::vector<np::KItem> GenRandomTest(size_t n, size_t capacity,

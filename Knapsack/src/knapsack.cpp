@@ -1,7 +1,7 @@
 #include <algorithm>
+#include <cassert>
 #include <queue>
 #include <vector>
-#include <cassert>
 
 #include "../includes/knapsack.h"
 
@@ -20,13 +20,12 @@ size_t Knapsack::BruteForce() {
       if ((1 << j) & k) {
         total_profit = total_profit + elements_[j].profit;
         total_weight = total_weight + elements_[j].weight;
-        if (total_weight >= capacity_) 
-          break;
+        if (total_weight >= capacity_) break;
         max_set_buf[count++] = j + 1;
       }
     }
 
-    if (total_weight < capacity_) {
+    if (total_weight <= capacity_) {
       if (total_profit >= max_profit) {
         max_weight = total_weight;
         max_profit = total_profit;
@@ -102,7 +101,7 @@ size_t Knapsack::BranchAndBound() {
     v.itemList = u.itemList;
     v.itemList.push_back(v.elem.id);
 
-    if (v.elem.weight < capacity_ && v.elem.profit > maxProfit) {
+    if (v.elem.weight <= capacity_ && v.elem.profit > maxProfit) {
       maxProfit = v.elem.profit;
       maxWeight = v.elem.weight;
       bab_solution = v.itemList;

@@ -1,3 +1,5 @@
+#pragma once
+
 namespace np {
 struct KItem {
   int weight = 0;
