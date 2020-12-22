@@ -35,38 +35,13 @@ class Knapsack final {
   static std::tuple<size_t, size_t> GetAnswer(std::istream &is) {
     size_t total_weight;
     size_t total_profit;
-    
-    is >> total_weight;
+
     is >> total_profit;
+    is >> total_weight;
 
-    return std::make_tuple(total_profit, total_weight);;
+    return std::make_tuple(total_profit, total_weight);
+    ;
   }
-
-//   static std::tuple<size_t, std::vector<KItem>> GetInput(
-//       std::iostream &is) {
-//     size_t k_capacity;
-//     size_t num_of_elems;
-//     std::ifstream input;
-
-//     input.open(file_name);
-//     if (input.is_open()) {
-//       input >> k_capacity;
-//       input >> num_of_elems;
-//     } else {
-//       std::cerr << file_name << " was not opened" << std::endl;
-//       exit(EXIT_FAILURE);
-//     }
-
-//     std::vector<KItem> elems;
-//     elems.resize(num_of_elems);
-//     for (size_t i = 0; i < num_of_elems; i++) {
-//       input >> elems[i].weight;
-//       input >> elems[i].profit;
-//       elems[i].id = i;
-//     }
-
-//     return std::make_tuple(k_capacity, elems);
-//   }
 
   static std::tuple<size_t, std::vector<KItem>> GetInput(std::istream &is) {
     size_t k_capacity;
