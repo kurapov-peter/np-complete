@@ -10,43 +10,34 @@
 
 namespace Tests {
 
-std::tuple<std::vector<np::KItem>, size_t> GenSimpleAnswer(size_t n,
-                                                           size_t capacity,
-                                                           size_t profit) {
+std::tuple<std::vector<np::KItem>, size_t, size_t, size_t> GenSimpleAnswer(size_t n,
+                                                           size_t max_elem_weight,
+                                                           size_t max_elem_profit) {
   std::vector<np::KItem> res;
   res.reserve(n);
   size_t total_weight = 0;
   size_t total_profit = 0;
-  int min_elem_profit = profit;
+  int min_elem_profit = max_elem_profit;
   np::KItem cur_item;
 
-  for (size_t i = 0; i < n - 1; i++) {
-    float part = static_cast<float>(1 + std::rand() % 9) / 10;
+  for (size_t i = 0; i < n; i++) {
     cur_item.id = i;
-
-    cur_item.weight =
-        1 + (std::rand() % static_cast<int>((capacity - total_weight) * part));
+    cur_item.weight = 1 + rand() % max_elem_weight;
     total_weight += cur_item.weight;
-    cur_item.profit =
-        1 + (std::rand() % static_cast<int>((profit - total_profit) * part));
+    cur_item.profit = 1 + rand() % max_elem_profit;
     total_profit += cur_item.profit;
     res.push_back(cur_item);
     if (min_elem_profit > cur_item.profit) min_elem_profit = cur_item.profit;
   }
 
-  cur_item.id = n - 1;
-  cur_item.weight = capacity - total_weight;
-  cur_item.profit = profit - total_profit;
-  res.push_back(cur_item);
-
-  return std::make_tuple(res, min_elem_profit);
+  return std::make_tuple(res, min_elem_profit, total_weight, total_profit);
 }
 
-std::vector<np::KItem> GenSimpleTest(size_t n, size_t capacity,
-                                     size_t res_profit, std::string fname) {
+std::vector<np::KItem> GenSimpleTest(size_t n, size_t max_elem_weight,
+                                     size_t max_elem_profit, std::string fname) {
   srand(static_cast<unsigned int>(time(0)));
   size_t answer_size = 2 + (std::rand() % static_cast<int>(n / 2));
-  auto [res, min_profit] = GenSimpleAnswer(answer_size, capacity, res_profit);
+  auto [res, min_profit, capacity, res_profit] = GenSimpleAnswer(answer_size, max_elem_weight, max_elem_profit);
 
   np::KItem item;
   for (size_t i = 0; i < n - answer_size; i++) {
@@ -55,7 +46,7 @@ std::vector<np::KItem> GenSimpleTest(size_t n, size_t capacity,
       item.weight = capacity + 1 + rand() % capacity;
       item.profit = rand() % res_profit;
     } else {
-      item.weight = rand() % capacity;
+      item.weight = rand() % max_elem_weight;
       item.profit = rand() % min_profit;
     }
     res.push_back(item);
