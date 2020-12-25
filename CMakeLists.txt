@@ -5,6 +5,10 @@ project(np-complete)
 add_subdirectory(googletest)
 add_subdirectory(benchmark)
 
-add_subdirectory(subset)
 add_subdirectory(tests)
 add_subdirectory(SAT)
+
+add_subdirectory(subset)
+add_subdirectory(knight_tour)
+add_subdirectory(clique)
+add_subdirectory(Knapsack)
