@@ -5,7 +5,7 @@
 ## Build
 
 mkdir build && cd build  
-cmake .. && make -jnproc  
+cmake .. && make -j`nproc`  
 
 ## Fuctional testing
 
