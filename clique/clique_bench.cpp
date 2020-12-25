@@ -1,11 +1,11 @@
 
+#include <iostream>
+#include <sstream>
+
 #include "benchmark/benchmark.h"
 #include "clique.hpp"
 #include "graph.hpp"
 #include "graph_generator.hpp"
-
-#include <iostream>
-#include <sstream>
 
 static void BM_cliqueBruteForce(benchmark::State& state) {
   size_t graphSize = state.range(0);
