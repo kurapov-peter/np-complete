@@ -7,5 +7,7 @@ add_subdirectory(benchmark)
 
 add_subdirectory(tests)
 add_subdirectory(SAT)
+
+add_subdirectory(knight_tour)
 add_subdirectory(clique)
 add_subdirectory(Knapsack)

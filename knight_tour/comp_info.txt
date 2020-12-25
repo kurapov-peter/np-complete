@@ -1,0 +1,2 @@
+Run on (12 X 2208 MHz CPU s)
+Load Average: 0.52, 0.58, 0.59

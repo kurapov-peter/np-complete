@@ -1,0 +1,7 @@
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+"BM_force/5",5600000,118.286,117.188,ns,,,,,
+"BM_force/6",69637,7069.43,7180.09,ns,,,,,
+"BM_force/7",1,4.94971e+08,5e+08,ns,,,,,
+"BM_Warnsdorff/5",6400000,114.28,114.746,ns,,,,,
+"BM_Warnsdorff/6",5600000,127.738,128.348,ns,,,,,
+"BM_Warnsdorff/7",4977778,139.037,138.114,ns,,,,,

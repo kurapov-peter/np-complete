@@ -1,6 +1,8 @@
 
 set(test_list run_all.cpp
     sat/parser_tests.cpp
+    knight_tour/knight_tests.cpp
+    ../knight_tour/knight.cpp
     clique/graph_test.cpp
     clique/clique_test.cpp
 )
@@ -37,4 +39,5 @@ target_link_libraries(run_knapsack_test gtest source_lib1 source_lib2)
 enable_testing()
 
 add_test(CNFParserTest "./tests")
+add_test(KnightTest "./tests")
 add_test(CliqueTest "./tests")
