@@ -1,0 +1,268 @@
+{
+  "context": {
+    "date": "2020-12-13T01:36:59+03:00",
+    "host_name": "hutsi-Aspire-A717-71G",
+    "executable": "./clique/clique_bench",
+    "num_cpus": 8,
+    "mhz_per_cpu": 3800,
+    "cpu_scaling_enabled": true,
+    "caches": [
+      {
+        "type": "Data",
+        "level": 1,
+        "size": 32768,
+        "num_sharing": 2
+      },
+      {
+        "type": "Instruction",
+        "level": 1,
+        "size": 32768,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 2,
+        "size": 262144,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 3,
+        "size": 6291456,
+        "num_sharing": 8
+      }
+    ],
+    "load_avg": [0.5,0.4,0.49],
+    "library_build_type": "debug"
+  },
+  "benchmarks": [
+    {
+      "name": "BM_cliqueBruteForce/4",
+      "run_name": "BM_cliqueBruteForce/4",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 6724,
+      "real_time": 9.9072541939440853e+04,
+      "cpu_time": 9.9063470553242121e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_cliqueBruteForce/6",
+      "run_name": "BM_cliqueBruteForce/6",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 185,
+      "real_time": 3.7784224918927848e+06,
+      "cpu_time": 3.7784049891891899e+06,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_cliqueBruteForce/8",
+      "run_name": "BM_cliqueBruteForce/8",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 2,
+      "real_time": 3.2993698849986684e+08,
+      "cpu_time": 3.2993399800000000e+08,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_cliqueBruteForce/10",
+      "run_name": "BM_cliqueBruteForce/10",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 1,
+      "real_time": 4.4736377510998863e+10,
+      "cpu_time": 4.4735522492000000e+10,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/4",
+      "run_name": "BM_clique/4",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 28640,
+      "real_time": 2.4151428491596213e+04,
+      "cpu_time": 2.4150132087989026e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/6",
+      "run_name": "BM_clique/6",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 12431,
+      "real_time": 5.1290830906481853e+04,
+      "cpu_time": 5.1288487732282381e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/8",
+      "run_name": "BM_clique/8",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 6423,
+      "real_time": 1.0425426264978074e+05,
+      "cpu_time": 1.0425315631324898e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/10",
+      "run_name": "BM_clique/10",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 3248,
+      "real_time": 2.3505982697062494e+05,
+      "cpu_time": 2.3505680326354713e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/12",
+      "run_name": "BM_clique/12",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 1189,
+      "real_time": 4.5432424137890758e+05,
+      "cpu_time": 4.5429364423885598e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/14",
+      "run_name": "BM_clique/14",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 678,
+      "real_time": 9.5863175221228122e+05,
+      "cpu_time": 9.5861317699115060e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/16",
+      "run_name": "BM_clique/16",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 333,
+      "real_time": 2.0747016036032869e+06,
+      "cpu_time": 2.0746928648648707e+06,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/18",
+      "run_name": "BM_clique/18",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 137,
+      "real_time": 4.5404854379633628e+06,
+      "cpu_time": 4.5404376496349992e+06,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/20",
+      "run_name": "BM_clique/20",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 68,
+      "real_time": 9.8552875441087335e+06,
+      "cpu_time": 9.8549065147058796e+06,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/22",
+      "run_name": "BM_clique/22",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 33,
+      "real_time": 2.1340220060610037e+07,
+      "cpu_time": 2.1340014757575776e+07,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/24",
+      "run_name": "BM_clique/24",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 13,
+      "real_time": 4.6433295076964825e+07,
+      "cpu_time": 4.6432190230769031e+07,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/26",
+      "run_name": "BM_clique/26",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 7,
+      "real_time": 9.9967131143005505e+07,
+      "cpu_time": 9.9960459142856449e+07,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/28",
+      "run_name": "BM_clique/28",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 3,
+      "real_time": 2.1381996966677737e+08,
+      "cpu_time": 2.1381772566666749e+08,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/30",
+      "run_name": "BM_clique/30",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 2,
+      "real_time": 4.6065660299973387e+08,
+      "cpu_time": 4.6065100050000042e+08,
+      "time_unit": "ns"
+    },
+    {
+      "name": "BM_clique/32",
+      "run_name": "BM_clique/32",
+      "run_type": "iteration",
+      "repetitions": 0,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 1,
+      "real_time": 9.9284634799914789e+08,
+      "cpu_time": 9.9278864099999714e+08,
+      "time_unit": "ns"
+    }
+  ]
+}
