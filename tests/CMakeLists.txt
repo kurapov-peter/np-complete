@@ -4,7 +4,6 @@ set(test_list run_all.cpp
     ../knight_tour/knight.cpp
     clique/graph_test.cpp
     clique/clique_test.cpp
-    run_all.cpp
     subset/bruteforce.cpp
     subset/optimized.cpp
     subset/optHS.cpp
@@ -30,9 +29,6 @@ set_target_properties(source_lib2 PROPERTIES
 )
 
 add_executable(run_knapsack_test ${knapsack_test})
-
-add_executable(tests ${test_list})
-target_link_libraries(tests gtest sset)
 
 set_target_properties(run_knapsack_test PROPERTIES
     CXX_STANDARD 17
