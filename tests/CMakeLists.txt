@@ -10,7 +10,7 @@ set(test_list run_all.cpp
 )
 
 add_executable(tests ${test_list})
-target_link_libraries(tests gtest clique)
+target_link_libraries(tests gtest clique sset)
 
 set(knapsack_test Knapsack/src/knapsack_gtest.cpp
     Knapsack/src/run_knapsack.cpp
