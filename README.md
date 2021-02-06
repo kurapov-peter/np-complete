@@ -20,7 +20,7 @@ cd tests && ctest -j`nproc`
 sudo apt update  
 sudo apt install docker.io  
 sudo systemctl enable --now docker  
-sudo usermod -aG docker $(whoami)
+sudo usermod -aG docker $(whoami)  
 Relog your user. (A quick workaround to check: newgrp docker)
 
 ### Build image
