@@ -38,6 +38,12 @@ set_target_properties(run_knapsack_test PROPERTIES
 
 target_link_libraries(run_knapsack_test gtest source_lib1 source_lib2)
 
+add_executable(run_graph_test ../HamiltonianPathProblem/graph.cpp HamiltonianPathProblem/graph_test.cpp)
+target_link_libraries(run_graph_test gtest gmock gmock_main)
+
+add_executable(run_hamiltonian_path_brute_force_test ../HamiltonianPathProblem/graph.cpp ../HamiltonianPathProblem/hamiltonian_path_brute_force_solver.cpp HamiltonianPathProblem/hamiltonian_path_brute_force_test.cpp)
+target_link_libraries(run_hamiltonian_path_brute_force_test  gtest gmock gmock_main)
+
 enable_testing()
 
 add_test(CNFParserTest "./tests")
