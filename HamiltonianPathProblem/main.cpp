@@ -13,8 +13,8 @@ int main() {
     hamiltonian_path_brute_force_solver solver(std::move(graph_to_solve));
     solver.solve();
     if (solver.is_solution_exist()) {
-        std::cout << "Solution exists! Hamiltonian path is: ";
-        solver.print_solution();
+        std::cout << "Solution exists! Hamiltonian path is: " <<
+                    solver.get_solution() << std::endl;
     } else {
         std::cout << "Solution does not exist!" << std::endl;
     }

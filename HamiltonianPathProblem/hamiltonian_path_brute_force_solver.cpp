@@ -47,10 +47,11 @@ void hamiltonian_path_brute_force_solver::fill_next_vertex(graph::vertex current
     }
 }
 
-void hamiltonian_path_brute_force_solver::print_solution() const {
-    std::cout << solution[1];
+std::string hamiltonian_path_brute_force_solver::get_solution() const {
+    std::stringstream answer;
+    answer << solution[1];
     for (graph::vertex vertex = 2; vertex < solution.size(); vertex++) {
-        std::cout << " -> " << solution[vertex];
+        answer << " -> " << solution[vertex];
     }
-    std::cout << std::endl;
+    return answer.str();
 }

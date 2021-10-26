@@ -2,8 +2,7 @@
 #define HAMILTONIANPATHPROBLEM_GRAPH_H
 
 
-#include <cstdio>
-#include <iostream>
+#include <sstream>
 #include <vector>
 
 class graph {
@@ -16,7 +15,7 @@ public:
     size_t get_size() const { return vertex_number_; }
     bool is_incident(vertex outcoming_vertex, vertex incoming_vertex) const;
 
-    void print() const;
+    std::string to_string() const;
 
 private:
     size_t vertex_number_;

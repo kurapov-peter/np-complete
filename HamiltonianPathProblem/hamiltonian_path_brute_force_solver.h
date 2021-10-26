@@ -2,6 +2,8 @@
 #define HAMILTONIANPATHPROBLEM_HAMILTONIAN_PATH_BRUTE_FORCE_SOLVER_H
 
 
+#include <sstream>
+
 #include "graph.h"
 
 class hamiltonian_path_brute_force_solver {
@@ -9,7 +11,7 @@ public:
     explicit hamiltonian_path_brute_force_solver(graph&& graph_to_solve);
     void solve();
     bool is_solution_exist() const { return is_solution_found; }
-    void print_solution() const;
+    std::string get_solution() const;
 
 private:
     graph graph_;
