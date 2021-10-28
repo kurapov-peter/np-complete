@@ -6,6 +6,9 @@
 
 #include "graph.h"
 
+#define FRIEND_TEST(test_case_name, test_name)\
+friend class test_case_name##_##test_name##_Test
+
 class hamiltonian_path_brute_force_solver {
 public:
     explicit hamiltonian_path_brute_force_solver(graph&& graph_to_solve);
@@ -20,6 +23,9 @@ private:
 
     void fill_next_vertex(graph::vertex current_vertex);
     void solve_from_vertex(graph::vertex starting_vertex);
+
+    FRIEND_TEST(HamiltonianPathBruteForceSolver, FillNextVertexTest);
+    FRIEND_TEST(HamiltonianPathBruteForceSolver, SolveFromVertexTest);
 };
 
 
