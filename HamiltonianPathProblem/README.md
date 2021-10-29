@@ -16,3 +16,26 @@ In case hamiltonian path exists in the graph, program
 prints out the message: *"Solution exists!*
 *Hamiltonian path is: v_1 -> v_2 -> ... -> v_n"*,
 and *"Solution does not exist!"* otherwise.
+## How to build
+Requirements to build and run are CMake version 3.16 and C++ 17
+### Build and run solver
+```
+cd np-complete
+mkdir build && cd build
+cmake .. && make -j NPROCS
+HamiltonianPathProblem/hamiltonian_path_bench < your_test.txt
+```
+### Build and run Graph tests
+```
+cd np-complete
+mkdir build && cd build
+cmake .. && make -j NPROCS
+tests/run_graph_test
+```
+### Build and run Brute Force solver benchmarks
+```
+cd np-complete
+mkdir build && cd build
+cmake .. && make -j NPROCS
+tests/run_hamiltonian_path_brute_force_test
+```
