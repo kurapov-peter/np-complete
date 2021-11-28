@@ -44,6 +44,9 @@ target_link_libraries(run_graph_test gtest gmock gmock_main)
 add_executable(run_hamiltonian_path_brute_force_test ../HamiltonianPathProblem/graph.cpp ../HamiltonianPathProblem/hamiltonian_path_brute_force_solver.cpp HamiltonianPathProblem/hamiltonian_path_brute_force_test.cpp)
 target_link_libraries(run_hamiltonian_path_brute_force_test  gtest gmock gmock_main)
 
+add_executable(run_hamiltonian_path_dp_test ../HamiltonianPathProblem/graph.cpp ../HamiltonianPathProblem/hamiltonian_path_dp_solver.cpp HamiltonianPathProblem/hamiltonian_path_dp_solver_test.cpp)
+target_link_libraries(run_hamiltonian_path_dp_test  gtest gmock gmock_main)
+
 enable_testing()
 
 add_test(CNFParserTest "./tests")

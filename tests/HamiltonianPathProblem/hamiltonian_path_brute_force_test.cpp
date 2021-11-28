@@ -115,9 +115,6 @@ TEST(ConsistentGraphWithSolutionTest, Consistent5000Test) {
 TEST(ConsistentGraphWithSolutionTest, Consistent10000Test) {
   generate_consistent_graph_test(10000, true);
 }
-TEST(ConsistentGraphWithSolutionTest, Consistent50000Test) {
-  generate_consistent_graph_test(50000, true);
-}
 
 TEST(ConsistentGraphWithoutSolutionTest, Consistent10Test) {
   generate_consistent_graph_test(10, false);
@@ -161,9 +158,6 @@ TEST(FullyConnectedGraphTest, FullyConnected300Test) {
 }
 TEST(FullyConnectedGraphTest, FullyConnected400Test) {
   generate_fully_connected_graph_test(400);
-}
-TEST(FullyConnectedGraphTest, FullyConnected500Test) {
-  generate_fully_connected_graph_test(500);
 }
 
 TEST(HamiltonianPathBruteForceSolver, SolverRandomTest) {
