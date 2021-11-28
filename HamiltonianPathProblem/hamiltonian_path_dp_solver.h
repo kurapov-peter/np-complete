@@ -17,7 +17,7 @@ class hamiltonian_path_dp_solver {
   graph graph_;
   size_t mask_max = 0;
   size_t starting_vertex;
-  std::vector<std::vector<int>> dynamic_matrix;
+  std::vector<std::vector<bool>> dynamic_matrix;
   bool is_solution_found = false;
 
   int find_cheapest(graph::vertex first_vertex, size_t mask);
