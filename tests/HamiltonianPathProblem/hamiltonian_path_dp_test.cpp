@@ -1,18 +1,9 @@
-#include "../../HamiltonianPathProblem/hamiltonian_path_dp_solver.h"
-
 #include <gtest/gtest.h>
 
 #include <cstdlib>
 #include <sstream>
 
-graph generate_graph(size_t vertex_number) {
-  graph g(vertex_number + 1);
-  for (size_t vertex = 0; vertex < vertex_number; vertex++) {
-    g.add_edge(vertex + 1, vertex_number + 1);
-    g.add_edge(vertex_number + 1, vertex + 1);
-  }
-  return g;
-}
+#include "../../HamiltonianPathProblem/hamiltonian_path_dp_solver.h"
 
 void generate_consistent_graph_test(size_t vertex_number,
                                     bool is_solution_exist) {
@@ -24,12 +15,11 @@ void generate_consistent_graph_test(size_t vertex_number,
     g.add_edge(vertex_index, vertex_index + 1);
     answer << ' ' << vertex_index + 1;
   }
-  answer << ' ';
   hamiltonian_path_dp_solver solver(std::move(g));
   solver.solve();
   if (is_solution_exist) {
     EXPECT_TRUE(solver.is_solution_exist());
-//    EXPECT_EQ(solver.get_solution(), answer.str());
+    EXPECT_EQ(solver.get_solution(), answer.str());
     return;
   }
 

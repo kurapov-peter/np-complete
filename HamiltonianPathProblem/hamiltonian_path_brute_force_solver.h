@@ -10,7 +10,7 @@
 
 class hamiltonian_path_brute_force_solver {
  public:
-  explicit hamiltonian_path_brute_force_solver(const graph& graph_to_solve);
+  explicit hamiltonian_path_brute_force_solver(graph&& graph_to_solve);
   void solve();
   bool is_solution_exist() const { return is_solution_found; }
   std::string get_solution() const;

@@ -1,7 +1,7 @@
 #include "hamiltonian_path_brute_force_solver.h"
 
 hamiltonian_path_brute_force_solver::hamiltonian_path_brute_force_solver(
-    const graph& graph_to_solve)
+    graph&& graph_to_solve)
     : graph_(graph_to_solve) {
   solution.resize(graph_to_solve.get_size() + 1);
 }
@@ -25,31 +25,22 @@ void hamiltonian_path_brute_force_solver::solve_from_vertex(
     graph::vertex starting_vertex) {
   while (true) {
     fill_next_vertex(starting_vertex);
-    if (!solution[starting_vertex])
-      return;
+    if (!solution[starting_vertex]) return;
     if (starting_vertex == graph_.get_size()) {
       is_solution_found = true;
       return;
     }
     solve_from_vertex(starting_vertex + 1);
-    if (is_solution_found)
-//  for (graph::vertex v = starting_vertex; v <= graph_.get_size(); v++) {
-//    fill_next_vertex(v);
-//    if (!solution[v])
-      return;
+    if (is_solution_found) return;
   }
-//  is_solution_found = true;
 }
 
 void hamiltonian_path_brute_force_solver::fill_next_vertex(
     graph::vertex current_vertex) {
-//  for (solution[current_vertex] = 1;
-//       solution[current_vertex] <= graph_.get_size();
-//       solution[current_vertex]++) {
   while (true) {
-    solution[current_vertex] = (solution[current_vertex] + 1) % (graph_.get_size() + 1);
-    if (!solution[current_vertex])
-      return;
+    solution[current_vertex] =
+        (solution[current_vertex] + 1) % (graph_.get_size() + 1);
+    if (!solution[current_vertex]) return;
     if (graph_.is_incident(solution[current_vertex - 1],
                            solution[current_vertex])) {
       graph::vertex vertex;
@@ -58,7 +49,6 @@ void hamiltonian_path_brute_force_solver::fill_next_vertex(
       if (vertex == current_vertex) return;
     }
   }
-//  solution[current_vertex] = 0;
 }
 
 std::string hamiltonian_path_brute_force_solver::get_solution() const {
