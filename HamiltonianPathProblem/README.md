@@ -81,10 +81,13 @@ isolated, i.e. 1 -> 2 -> ... -> n-1; n
 fully connected vertices and *n*-th vertex isolated
 ### Performance estimation results
 * *Consistent graphs with solution*
+
 ![Consistent With Solution Performance](https://github.com/DandyForever/np-complete/blob/master/HamiltonianPathProblem/Report/consistent_with_solution_chart.PNG?raw=True)
 * *Consistent graphs without solution*
+
 ![Consistent Without Solution Performance](https://github.com/DandyForever/np-complete/blob/master/HamiltonianPathProblem/Report/consistent_without_solution_chart.PNG?raw=True)
 * *Fully connected graph without solution*
+
 ![Fully Connected Without Solution Performance](https://github.com/DandyForever/np-complete/blob/master/HamiltonianPathProblem/Report/Fully_connected_without_solution.PNG?raw=True)
 ### Conclusion
 * Brute force solution works efficiently on strongly degenerate graphs with the number of edges m ~ number of vertices
