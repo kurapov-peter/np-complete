@@ -80,6 +80,7 @@ isolated, i.e. 1 -> 2 -> ... -> n-1; n
 * *Fully connected graph without solution* is *n - 1*
 fully connected vertices and *n*-th vertex isolated
 ### Performance estimation results
+Device: Intel Core i7-10610U CPU @ 1.80GHz 2.30 GHz
 * *Consistent graphs with solution*
 
 ![Consistent With Solution Performance](https://github.com/DandyForever/np-complete/blob/master/HamiltonianPathProblem/Report/consistent_with_solution_chart.PNG?raw=True)
