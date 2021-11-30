@@ -100,16 +100,171 @@ TEST(HamiltonianPathBruteForceSolver, SolveFromVertexTest) {
   EXPECT_EQ(solver.solution[3], 3);
 }
 
-TEST(ConsistentGraphWithSolutionTest, Consistent100Test) {
-  generate_consistent_graph_test(100, true);
+TEST(ConsistentGraphWithSolutionTest, Consistent5Test) {
+  generate_consistent_graph_test(5, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent6Test) {
+  generate_consistent_graph_test(6, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent7Test) {
+  generate_consistent_graph_test(7, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent8Test) {
+  generate_consistent_graph_test(8, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent9Test) {
+  generate_consistent_graph_test(9, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent10Test) {
+  generate_consistent_graph_test(10, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent11Test) {
+  generate_consistent_graph_test(11, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent12Test) {
+  generate_consistent_graph_test(12, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent13Test) {
+  generate_consistent_graph_test(13, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent14Test) {
+  generate_consistent_graph_test(14, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent15Test) {
+  generate_consistent_graph_test(15, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent16Test) {
+  generate_consistent_graph_test(16, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent17Test) {
+  generate_consistent_graph_test(17, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent18Test) {
+  generate_consistent_graph_test(18, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent19Test) {
+  generate_consistent_graph_test(19, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent20Test) {
+  generate_consistent_graph_test(20, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent21Test) {
+  generate_consistent_graph_test(21, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent22Test) {
+  generate_consistent_graph_test(22, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent23Test) {
+  generate_consistent_graph_test(23, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent24Test) {
+  generate_consistent_graph_test(24, true);
+}
+TEST(ConsistentGraphWithSolutionTest, Consistent25Test) {
+  generate_consistent_graph_test(25, true);
 }
 
+
+TEST(ConsistentGraphWithoutSolutionTest, Consistent5Test) {
+  generate_consistent_graph_test(5, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent6Test) {
+  generate_consistent_graph_test(6, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent7Test) {
+  generate_consistent_graph_test(7, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent8Test) {
+  generate_consistent_graph_test(8, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent9Test) {
+  generate_consistent_graph_test(9, false);
+}
 TEST(ConsistentGraphWithoutSolutionTest, Consistent10Test) {
+  generate_consistent_graph_test(10, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent11Test) {
+  generate_consistent_graph_test(11, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent12Test) {
+  generate_consistent_graph_test(12, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent13Test) {
+  generate_consistent_graph_test(13, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent14Test) {
+  generate_consistent_graph_test(14, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent15Test) {
+  generate_consistent_graph_test(15, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent16Test) {
+  generate_consistent_graph_test(16, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent17Test) {
+  generate_consistent_graph_test(17, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent18Test) {
+  generate_consistent_graph_test(18, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent19Test) {
+  generate_consistent_graph_test(19, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent20Test) {
   generate_consistent_graph_test(20, false);
 }
+TEST(ConsistentGraphWithoutSolutionTest, Consistent21Test) {
+  generate_consistent_graph_test(21, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent22Test) {
+  generate_consistent_graph_test(22, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent23Test) {
+  generate_consistent_graph_test(23, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent24Test) {
+  generate_consistent_graph_test(24, false);
+}
+TEST(ConsistentGraphWithoutSolutionTest, Consistent25Test) {
+  generate_consistent_graph_test(25, false);
+}
 
+
+TEST(FullyConnectedGraphTest, FullyConnected2Test) {
+  generate_fully_connected_graph_test(2);
+}
+TEST(FullyConnectedGraphTest, FullyConnected3Test) {
+  generate_fully_connected_graph_test(3);
+}
+TEST(FullyConnectedGraphTest, FullyConnected4Test) {
+  generate_fully_connected_graph_test(4);
+}
+TEST(FullyConnectedGraphTest, FullyConnected5Test) {
+  generate_fully_connected_graph_test(5);
+}
+TEST(FullyConnectedGraphTest, FullyConnected6Test) {
+  generate_fully_connected_graph_test(6);
+}
+TEST(FullyConnectedGraphTest, FullyConnected7Test) {
+  generate_fully_connected_graph_test(7);
+}
+TEST(FullyConnectedGraphTest, FullyConnected8Test) {
+  generate_fully_connected_graph_test(8);
+}
+TEST(FullyConnectedGraphTest, FullyConnected9Test) {
+  generate_fully_connected_graph_test(9);
+}
 TEST(FullyConnectedGraphTest, FullyConnected10Test) {
+  generate_fully_connected_graph_test(10);
+}
+TEST(FullyConnectedGraphTest, FullyConnected11Test) {
   generate_fully_connected_graph_test(11);
+}
+TEST(FullyConnectedGraphTest, FullyConnected12Test) {
+  generate_fully_connected_graph_test(12);
+}
+TEST(FullyConnectedGraphTest, FullyConnected13Test) {
+  generate_fully_connected_graph_test(13);
 }
 
 TEST(HamiltonianPathBruteForceSolver, SolverRandomTest) {

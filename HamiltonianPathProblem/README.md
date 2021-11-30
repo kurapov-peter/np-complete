@@ -18,12 +18,19 @@ prints out the message: *"Solution exists!*
 and *"Solution does not exist!"* otherwise.
 ## How to build
 Requirements to build and run are CMake version 3.16 and C++ 17
-### Build and run solver
+### Build and run Brute Force solver
 ```
 cd np-complete
 mkdir build && cd build
 cmake .. && make -j NPROCS
-HamiltonianPathProblem/hamiltonian_path_bench < your_test.txt
+HamiltonianPathProblem/hamiltonian_path_bf_bench < your_test.txt
+```
+### Build and run Dynamic Programming solver
+```
+cd np-complete
+mkdir build && cd build
+cmake .. && make -j NPROCS
+HamiltonianPathProblem/hamiltonian_path_dp_bench < your_test.txt
 ```
 ### Build and run Graph tests
 ```
@@ -38,4 +45,11 @@ cd np-complete
 mkdir build && cd build
 cmake .. && make -j NPROCS
 tests/run_hamiltonian_path_brute_force_test
+```
+### Build and run Dynamic Programming solver benchmarks
+```
+cd np-complete
+mkdir build && cd build
+cmake .. && make -j NPROCS
+tests/run_hamiltonian_path_dp_test
 ```
