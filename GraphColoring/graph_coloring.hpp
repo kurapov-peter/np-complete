@@ -1,7 +1,7 @@
 #ifndef GRAPH_COLORING_HPP
 #define GRAPH_COLORING_HPP
 
-namespace graph {
+namespace coloring {
 
 class Graph;
 

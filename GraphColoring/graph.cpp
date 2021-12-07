@@ -4,7 +4,7 @@
 #include <iostream>
 #include <sstream>
 
-namespace graph {
+namespace coloring {
 
 size_t Graph::getMaxDegree() const {
   size_t max_degree = 0;

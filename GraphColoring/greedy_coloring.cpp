@@ -3,7 +3,7 @@
 
 #include "graph.hpp"
 
-namespace graph {
+namespace coloring {
 
 static Color getVertexColor(Graph &G, const Vertex &V) {
   assert(!V.hasColor());

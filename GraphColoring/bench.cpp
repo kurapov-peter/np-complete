@@ -3,26 +3,26 @@
 #include "graph_coloring.hpp"
 
 static void BM_coloringGreedyCompleteGraph(benchmark::State& state) {
-  auto G = graph::GetCompleteGraph(state.range(0));
+  auto G = coloring::GetCompleteGraph(state.range(0));
   for (auto _ : state) {
     G.clearColoring();
-    graph::GreedyColoring(G);
+    coloring::GreedyColoring(G);
   }
 }
 
 static void BM_coloringGreedyAcyclicGraph(benchmark::State& state) {
-  auto G = graph::GetAcyclicGraph(state.range(0));
+  auto G = coloring::GetAcyclicGraph(state.range(0));
   for (auto _ : state) {
     G.clearColoring();
-    graph::GreedyColoring(G);
+    coloring::GreedyColoring(G);
   }
 }
 
 static void BM_coloringGreedyBipartiteGraph(benchmark::State& state) {
-  auto G = graph::GetBipartiteGraph(state.range(0), state.range(0));
+  auto G = coloring::GetBipartiteGraph(state.range(0), state.range(0));
   for (auto _ : state) {
     G.clearColoring();
-    graph::GreedyColoring(G);
+    coloring::GreedyColoring(G);
   }
 }
 

@@ -6,7 +6,7 @@
 #include <set>
 #include <vector>
 
-namespace graph {
+namespace coloring {
 
 using Color = unsigned;
 
