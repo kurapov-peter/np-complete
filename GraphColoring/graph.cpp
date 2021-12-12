@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 
 namespace coloring {
 
@@ -34,13 +35,41 @@ bool Graph::checkColoring() const {
 }
 
 static std::string ColorToString(Color color, Color max_color) {
-  float h = 0.0f, s = 0.0f, v = 0.0f;
+  constexpr uint32_t maxR = 0xf;
+  constexpr uint32_t maxG = 0xff;
+  constexpr uint32_t maxB = 0xfff;
+
+  assert(max_color <= maxB);
+
+  uint32_t r = 0, g = 0, b = 0;
   if (color) {
-    h = (float)color / max_color;
-    s = 1.0f;
+    r = color & maxR;
+    g = (color & maxG) >> 4;
+    b = (color & maxB) >> 8;
+
+    r *= 0xf;
+    g *= 0xf;
+    b *= 0xf;
   }
+
+  // The most used case. Convert r->rgb.
+  if(g == 0 && b == 0)
+  {
+    uint32_t real = r;
+    r = real & 7;
+    g = (real & 0x3f) >> 3;
+    b = real >> 6;
+
+    r *= 0x1e;
+    g *= 0x1e;
+    b *= 0x1e;
+  }
+
   std::stringstream ss;
-  ss << h << ' ' << s << ' ' << v;
+  ss << "#";
+  ss << std::hex << std::setfill('0') << std::setw(2) << b;
+  ss << std::hex << std::setfill('0') << std::setw(2) << g;
+  ss << std::hex << std::setfill('0') << std::setw(2) << r;
   return ss.str();
 }
 
@@ -48,9 +77,9 @@ void Graph::dump(std::ostream &os) const {
   os << "graph {\n";
   for (Vertex::Idx idx = 0; idx < vertices_.size(); ++idx) {
     const auto &V = getVertex(idx);
-    os << "\tv" << idx << "[color=\""
+    os << "\tv" << idx << "[fillcolor=\""
        << ColorToString(V.hasColor() ? V.getColor() : 0, getNumColors())
-       << "\"];\n";
+       << "\", style=filled"<< "];\n";
     for (auto adj_idx : V)
       if (adj_idx > idx) os << "\tv" << idx << " -- v" << adj_idx << ";\n";
   }

@@ -56,4 +56,4 @@ void GreedyColoring(Graph &G) {
   }
 }
 
-}  // namespace graph
+}  // namespace coloring
