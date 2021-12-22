@@ -50,12 +50,12 @@ static void BM_coloringBruteForceBipartiteGraph(benchmark::State& state) {
   }
 }
 
-BENCHMARK(BM_coloringGreedyCompleteGraph)->RangeMultiplier(2)->Range(1, 1024);
-BENCHMARK(BM_coloringGreedyAcyclicGraph)->RangeMultiplier(2)->Range(1, 1024);
-BENCHMARK(BM_coloringGreedyBipartiteGraph)->RangeMultiplier(2)->Range(1, 1024);
+BENCHMARK(BM_coloringGreedyCompleteGraph)->DenseRange(1, 8);
+BENCHMARK(BM_coloringGreedyAcyclicGraph)->DenseRange(1, 8);
+BENCHMARK(BM_coloringGreedyBipartiteGraph)->DenseRange(1, 8);
 
-BENCHMARK(BM_coloringBruteForceCompleteGraph)->RangeMultiplier(2)->Range(1, 8);
-BENCHMARK(BM_coloringBruteForceAcyclicGraph)->RangeMultiplier(2)->Range(1, 8);
-BENCHMARK(BM_coloringBruteForceBipartiteGraph)->RangeMultiplier(2)->Range(1, 8);
+BENCHMARK(BM_coloringBruteForceCompleteGraph)->DenseRange(1, 8);
+BENCHMARK(BM_coloringBruteForceAcyclicGraph)->DenseRange(1, 8);
+BENCHMARK(BM_coloringBruteForceBipartiteGraph)->DenseRange(1, 8);
 
 BENCHMARK_MAIN();

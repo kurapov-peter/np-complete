@@ -57,7 +57,7 @@ class Graph {
   }
   Color getNumColors() const { return max_color_; }
   Color getNewColor() { return ++max_color_; }
-  void setMaxColor(uint32_t max) { max_color_ = max; }
+  void setMaxColor(Color max) { max_color_ = max; }
   size_t getMaxDegree() const;
   void clearColoring();
   bool checkColoring() const;
