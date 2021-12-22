@@ -57,7 +57,7 @@ class Graph {
   }
   Color getNumColors() const { return max_color_; }
   Color getNewColor() { return ++max_color_; }
-  void setMaxColor(uint32_t max) {max_color_ = max; }
+  void setMaxColor(uint32_t max) { max_color_ = max; }
   size_t getMaxDegree() const;
   void clearColoring();
   bool checkColoring() const;
@@ -76,6 +76,6 @@ std::istream &operator>>(std::istream &is, Graph &G);
 Graph GetCompleteGraph(size_t N);
 Graph GetAcyclicGraph(size_t N);
 Graph GetBipartiteGraph(size_t N1, size_t N2);
-}  // namespace graph
+}  // namespace coloring
 
 #endif

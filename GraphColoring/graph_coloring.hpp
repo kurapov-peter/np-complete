@@ -8,6 +8,6 @@ class Graph;
 void GreedyColoring(Graph &G);
 void BruteForceColoring(Graph &G);
 
-}  // namespace graph
+}  // namespace coloring
 
 #endif

@@ -1,9 +1,9 @@
 #include "graph.hpp"
 
 #include <algorithm>
+#include <iomanip>
 #include <iostream>
 #include <sstream>
-#include <iomanip>
 
 namespace coloring {
 
@@ -53,8 +53,7 @@ static std::string ColorToString(Color color, Color max_color) {
   }
 
   // The most used case. Convert r->rgb.
-  if(g == 0 && b == 0)
-  {
+  if (g == 0 && b == 0) {
     uint32_t real = r;
     r = real & 7;
     g = (real & 0x3f) >> 3;
@@ -79,7 +78,8 @@ void Graph::dump(std::ostream &os) const {
     const auto &V = getVertex(idx);
     os << "\tv" << idx << "[fillcolor=\""
        << ColorToString(V.hasColor() ? V.getColor() : 0, getNumColors())
-       << "\", style=filled"<< "];\n";
+       << "\", style=filled"
+       << "];\n";
     for (auto adj_idx : V)
       if (adj_idx > idx) os << "\tv" << idx << " -- v" << adj_idx << ";\n";
   }
@@ -127,4 +127,4 @@ Graph GetBipartiteGraph(size_t N1, size_t N2) {
   return G;
 }
 
-}  // namespace graph
+}  // namespace coloring
