@@ -1,4 +1,4 @@
- ## Build
+## Build ![build status](https://github.com/kurapov-peter/np-complete/workflows/CMake/badge.svg)
 mkdir build && cd build  
 cmake .. && make -j`nproc`  
 
