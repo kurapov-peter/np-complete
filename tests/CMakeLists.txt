@@ -7,10 +7,11 @@ set(test_list run_all.cpp
     subset/bruteforce.cpp
     subset/optimized.cpp
     subset/optHS.cpp
+    GraphColoring/tests.cpp
 )
 
 add_executable(tests ${test_list})
-target_link_libraries(tests gtest clique sset)
+target_link_libraries(tests gtest clique sset graph-coloring)
 
 set(knapsack_test Knapsack/src/knapsack_gtest.cpp
     Knapsack/src/run_knapsack.cpp
