@@ -7,6 +7,7 @@ class Graph;
 
 void GreedyColoring(Graph &G);
 void BruteForceColoring(Graph &G);
+void DSaturColoring(Graph &G);
 
 }  // namespace coloring
 
