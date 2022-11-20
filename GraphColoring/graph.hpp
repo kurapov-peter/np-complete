@@ -10,6 +10,8 @@ namespace coloring {
 
 using Color = unsigned;
 
+class Graph;
+
 class Vertex {
  public:
   using Idx = std::size_t;
@@ -17,7 +19,7 @@ class Vertex {
   Vertex() : color_{0} {}
   const_iterator begin() const { return adjacent_vertices_.cbegin(); }
   const_iterator end() const { return adjacent_vertices_.cend(); }
-  void addAdjacentVertex(Idx vertex) { adjacent_vertices_.insert(vertex); }
+  void addAdjacentVertex(Idx vertex, Graph &G);
   bool isAdjacentVertex(Idx vertex) const {
     return adjacent_vertices_.count(vertex);
   }
@@ -33,7 +35,10 @@ class Vertex {
     return color_;
   }
 
+  auto &getAdjVIterators() const { return adj_v_its; }
+
  private:
+  std::vector<std::vector<Vertex>::const_iterator> adj_v_its;
   std::set<Idx> adjacent_vertices_;
   Color color_;
 };
@@ -52,8 +57,8 @@ class Graph {
   }
   void addEdge(Vertex::Idx idx1, Vertex::Idx idx2) {
     resize(std::max(idx1, idx2));
-    getVertex(idx1).addAdjacentVertex(idx2);
-    getVertex(idx2).addAdjacentVertex(idx1);
+    getVertex(idx1).addAdjacentVertex(idx2, *this);
+    getVertex(idx2).addAdjacentVertex(idx1, *this);
   }
   Color getNumColors() const { return max_color_; }
   Color getNewColor() { return ++max_color_; }

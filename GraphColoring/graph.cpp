@@ -7,6 +7,11 @@
 
 namespace coloring {
 
+void Vertex::addAdjacentVertex(Idx vertex, Graph &G) {
+  auto &&[It, IsInserted] = adjacent_vertices_.insert(vertex);
+  if (IsInserted) adj_v_its.push_back(G.begin() + vertex);
+}
+
 size_t Graph::getMaxDegree() const {
   size_t max_degree = 0;
   for (const auto &V : vertices_)
