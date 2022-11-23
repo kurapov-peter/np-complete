@@ -1,4 +1,5 @@
 #include <iostream>
+
 #include "benchmark/benchmark.h"
 
 static bool solve_sat(unsigned n) {

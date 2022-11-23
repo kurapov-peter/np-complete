@@ -142,7 +142,6 @@ TEST(ConsistentGraphWithSolutionTest, Consistent25Test) {
   generate_consistent_graph_test(25, true);
 }
 
-
 TEST(ConsistentGraphWithoutSolutionTest, Consistent5Test) {
   generate_consistent_graph_test(5, false);
 }
@@ -206,7 +205,6 @@ TEST(ConsistentGraphWithoutSolutionTest, Consistent24Test) {
 TEST(ConsistentGraphWithoutSolutionTest, Consistent25Test) {
   generate_consistent_graph_test(25, false);
 }
-
 
 TEST(FullyConnectedGraphTest, FullyConnected2Test) {
   generate_fully_connected_graph_test(2);

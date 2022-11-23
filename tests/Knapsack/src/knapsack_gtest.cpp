@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include <stdio.h>
+
 #include <iostream>
+
 #include "../../../Knapsack/includes/knapsack.h"
 #include "../includes/test_generator.h"
 
