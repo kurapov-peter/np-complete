@@ -1,10 +1,12 @@
 #include <math.h>
+
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
 #include <random>
 #include <tuple>
+
 #include "../includes/knapsack.h"
 
 namespace Tests {
