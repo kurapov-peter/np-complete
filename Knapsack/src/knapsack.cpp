@@ -1,9 +1,9 @@
+#include "../includes/knapsack.h"
+
 #include <algorithm>
 #include <cassert>
 #include <queue>
 #include <vector>
-
-#include "../includes/knapsack.h"
 
 namespace np {
 

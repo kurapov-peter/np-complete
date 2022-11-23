@@ -1,8 +1,8 @@
-#include "SSet.h"
-#include "benchmark/benchmark.h"
-
 #include <iostream>
 #include <sstream>
+
+#include "SSet.h"
+#include "benchmark/benchmark.h"
 
 static void BM_subsetOPTFromFile10T(benchmark::State& state) {
   SSet set;
@@ -95,4 +95,3 @@ BENCHMARK(BM_subsetOPTFromFile30F);
 BENCHMARK(BM_subsetOPTFromFile100);
 
 BENCHMARK_MAIN();
-

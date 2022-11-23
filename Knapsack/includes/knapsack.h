@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdlib.h>
+
 #include <algorithm>
 #include <cmath>
 #include <fstream>
@@ -8,6 +9,7 @@
 #include <queue>
 #include <tuple>
 #include <vector>
+
 #include "common.h"
 
 namespace np {

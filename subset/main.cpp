@@ -1,4 +1,5 @@
 #include <iostream>
+
 #include "SSet.h"
 
 void addFromInput(SSet& set) {

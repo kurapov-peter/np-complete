@@ -1,8 +1,8 @@
-#include "SSet.h"
-#include "benchmark/benchmark.h"
-
 #include <iostream>
 #include <sstream>
+
+#include "SSet.h"
+#include "benchmark/benchmark.h"
 
 static void BM_subsetBruteFromFile10T(benchmark::State& state) {
   SSet set;

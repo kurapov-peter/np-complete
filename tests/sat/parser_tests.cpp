@@ -1,5 +1,6 @@
 #include <sstream>
 #include <string>
+
 #include "../../SAT/cnf_parser.hpp"
 #include "gtest/gtest.h"
 

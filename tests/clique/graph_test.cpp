@@ -1,9 +1,10 @@
 #include "../../clique/graph.hpp"
-#include "../../clique/clique.hpp"
-#include "gtest/gtest.h"
 
 #include <algorithm>
 #include <vector>
+
+#include "../../clique/clique.hpp"
+#include "gtest/gtest.h"
 
 TEST(CliqueTest, GraphTest) {
   graph::Graph graph;
