@@ -23,6 +23,10 @@ class ColoringTest : public ::testing::Test {
       graphs_dsatur_.push_back(coloring::GetBipartiteGraph(N, N));
       graphs_dsatur_.push_back(coloring::GetAcyclicGraph(N));
       graphs_dsatur_.push_back(coloring::GetCompleteGraph(N));
+
+      graphs_jp_.push_back(coloring::GetBipartiteGraph(N, N));
+      graphs_jp_.push_back(coloring::GetAcyclicGraph(N));
+      graphs_jp_.push_back(coloring::GetCompleteGraph(N));
     }
 
     for (size_t N : {1, 5, 10}) {
@@ -36,6 +40,7 @@ class ColoringTest : public ::testing::Test {
   std::vector<coloring::Graph> graphs_greedy_;
   std::vector<coloring::Graph> graphs_bruteforce_;
   std::vector<coloring::Graph> graphs_dsatur_;
+  std::vector<coloring::Graph> graphs_jp_;
 };
 
 TEST_F(ColoringTest, GreedyColoring) {
@@ -48,6 +53,13 @@ TEST_F(ColoringTest, GreedyColoring) {
 TEST_F(ColoringTest, DSaturColoring) {
   for (auto &G : graphs_dsatur_) {
     coloring::DSaturColoring(G);
+    EXPECT_TRUE(G.checkColoring());
+  }
+}
+
+TEST_F(ColoringTest, JohnPlassmann) {
+  for (auto &G: graphs_dsatur_) {
+    coloring::JohnPlassmannColoring(G);
     EXPECT_TRUE(G.checkColoring());
   }
 }
