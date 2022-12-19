@@ -26,6 +26,30 @@ static void BM_coloringDSaturBipartiteGraph(benchmark::State& state) {
   }
 }
 
+static void BM_coloringJohnPlassmannCompleteGraph(benchmark::State& state) {
+  auto G = coloring::GetCompleteGraph(state.range(0));
+  for (auto _ : state) {
+    G.clearColoring();
+    coloring::JohnPlassmannColoring(G);
+  }
+}
+
+static void BM_coloringJohnPlassmannAcyclicGraph(benchmark::State& state) {
+  auto G = coloring::GetAcyclicGraph(state.range(0));
+  for (auto _ : state) {
+    G.clearColoring();
+    coloring::JohnPlassmannColoring(G);
+  }
+}
+
+static void BM_coloringJohnPlassmannBipartiteGraph(benchmark::State& state) {
+  auto G = coloring::GetBipartiteGraph(state.range(0), state.range(0));
+  for (auto _ : state) {
+    G.clearColoring();
+    coloring::JohnPlassmannColoring(G);
+  }
+}
+
 static void BM_coloringGreedyCompleteGraph(benchmark::State& state) {
   auto G = coloring::GetCompleteGraph(state.range(0));
   for (auto _ : state) {
@@ -77,6 +101,10 @@ static void BM_coloringBruteForceBipartiteGraph(benchmark::State& state) {
 BENCHMARK(BM_coloringDSaturCompleteGraph)->DenseRange(1, 8);
 BENCHMARK(BM_coloringDSaturAcyclicGraph)->DenseRange(1, 8);
 BENCHMARK(BM_coloringDSaturBipartiteGraph)->DenseRange(1, 8);
+
+BENCHMARK(BM_coloringJohnPlassmannBipartiteGraph)->DenseRange(1, 8);
+BENCHMARK(BM_coloringJohnPlassmannAcyclicGraph)->DenseRange(1, 8);
+BENCHMARK(BM_coloringJohnPlassmannCompleteGraph)->DenseRange(1, 8);
 
 BENCHMARK(BM_coloringGreedyCompleteGraph)->DenseRange(1, 8);
 BENCHMARK(BM_coloringGreedyAcyclicGraph)->DenseRange(1, 8);

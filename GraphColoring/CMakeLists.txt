@@ -1,5 +1,5 @@
 set(LIBRARY_NAME graph-coloring)
-add_library(${LIBRARY_NAME} STATIC "graph.cpp" "greedy_coloring.cpp" "bruteforce_coloring.cpp" "DSatur_coloring.cc")
+add_library(${LIBRARY_NAME} STATIC "graph.cpp" "greedy_coloring.cpp" "bruteforce_coloring.cpp" "DSatur_coloring.cc" JohnPlassmann_coloring.cpp)
 target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_17)
 
 set(BENCH_NAME coloring-bench)
