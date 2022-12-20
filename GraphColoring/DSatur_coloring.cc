@@ -56,7 +56,7 @@ void DSaturColoring(Graph& G) {
 
     // Mark all adjacent vertex colors as Used.
     for (auto &&V : U.getAdjVIterators())
-      if (Color Clr = V->getColor()) Used[Clr] = true;
+      if (V->hasColor()) Used[V->getColor()] = true;
 
     // Find the lowest available color.
     Color i = 1;
@@ -65,7 +65,7 @@ void DSaturColoring(Graph& G) {
 
     // Restore usage of colors.
     for (auto &&V : U.getAdjVIterators())
-      if (Color Clr = V->getColor()) Used[Clr] = false;
+      if (V->hasColor()) Used[V->getColor()] = false;
 
     U.assignColor(i);
 

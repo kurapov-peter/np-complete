@@ -20,9 +20,9 @@ class ColoringTest : public ::testing::Test {
       graphs_greedy_.push_back(coloring::GetAcyclicGraph(N));
       graphs_greedy_.push_back(coloring::GetCompleteGraph(N));
 
-      //graphs_dsatur_.push_back(coloring::GetBipartiteGraph(N, N));
-      //graphs_dsatur_.push_back(coloring::GetAcyclicGraph(N));
-      //graphs_dsatur_.push_back(coloring::GetCompleteGraph(N));
+      graphs_dsatur_.push_back(coloring::GetBipartiteGraph(N, N));
+      graphs_dsatur_.push_back(coloring::GetAcyclicGraph(N));
+      graphs_dsatur_.push_back(coloring::GetCompleteGraph(N));
 
       graphs_RLF_.push_back(coloring::GetBipartiteGraph(N, N));
       graphs_RLF_.push_back(coloring::GetAcyclicGraph(N));
