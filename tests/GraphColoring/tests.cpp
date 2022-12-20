@@ -20,9 +20,13 @@ class ColoringTest : public ::testing::Test {
       graphs_greedy_.push_back(coloring::GetAcyclicGraph(N));
       graphs_greedy_.push_back(coloring::GetCompleteGraph(N));
 
-      graphs_dsatur_.push_back(coloring::GetBipartiteGraph(N, N));
-      graphs_dsatur_.push_back(coloring::GetAcyclicGraph(N));
-      graphs_dsatur_.push_back(coloring::GetCompleteGraph(N));
+      //graphs_dsatur_.push_back(coloring::GetBipartiteGraph(N, N));
+      //graphs_dsatur_.push_back(coloring::GetAcyclicGraph(N));
+      //graphs_dsatur_.push_back(coloring::GetCompleteGraph(N));
+
+      graphs_RLF_.push_back(coloring::GetBipartiteGraph(N, N));
+      graphs_RLF_.push_back(coloring::GetAcyclicGraph(N));
+      graphs_RLF_.push_back(coloring::GetCompleteGraph(N));
     }
 
     for (size_t N : {1, 5, 10}) {
@@ -36,6 +40,7 @@ class ColoringTest : public ::testing::Test {
   std::vector<coloring::Graph> graphs_greedy_;
   std::vector<coloring::Graph> graphs_bruteforce_;
   std::vector<coloring::Graph> graphs_dsatur_;
+  std::vector<coloring::Graph> graphs_RLF_;
 };
 
 TEST_F(ColoringTest, GreedyColoring) {
@@ -55,6 +60,13 @@ TEST_F(ColoringTest, DSaturColoring) {
 TEST_F(ColoringTest, BruteForceColoring) {
   for (auto &G : graphs_bruteforce_) {
     coloring::BruteForceColoring(G);
+    EXPECT_TRUE(G.checkColoring());
+  }
+}
+
+TEST_F(ColoringTest, RLFColoring) {
+  for (auto &G: graphs_RLF_) {
+    coloring::RLFColoring(G);
     EXPECT_TRUE(G.checkColoring());
   }
 }

@@ -2,6 +2,30 @@
 #include "graph.hpp"
 #include "graph_coloring.hpp"
 
+static void BM_coloringRLFCompleteGraph(benchmark::State& state) {
+  auto G = coloring::GetCompleteGraph(state.range(0));
+  for (auto _ : state) {
+    G.clearColoring();
+    coloring::RLFColoring(G);
+  }
+}
+
+static void BM_coloringRLFAcyclicGraph(benchmark::State& state) {
+  auto G = coloring::GetAcyclicGraph(state.range(0));
+  for (auto _ : state) {
+    G.clearColoring();
+    coloring::RLFColoring(G);
+  }
+}
+
+static void BM_coloringRLFBipartiteGraph(benchmark::State& state) {
+  auto G = coloring::GetBipartiteGraph(state.range(0), state.range(0));
+  for (auto _ : state) {
+    G.clearColoring();
+    coloring::RLFColoring(G);
+  }
+}
+
 static void BM_coloringDSaturCompleteGraph(benchmark::State& state) {
   auto G = coloring::GetCompleteGraph(state.range(0));
   for (auto _ : state) {
@@ -73,6 +97,10 @@ static void BM_coloringBruteForceBipartiteGraph(benchmark::State& state) {
     coloring::BruteForceColoring(G);
   }
 }
+
+BENCHMARK(BM_coloringRLFCompleteGraph)->DenseRange(1, 8);
+BENCHMARK(BM_coloringRLFAcyclicGraph)->DenseRange(1, 8);
+BENCHMARK(BM_coloringRLFBipartiteGraph)->DenseRange(1, 8);
 
 BENCHMARK(BM_coloringDSaturCompleteGraph)->DenseRange(1, 8);
 BENCHMARK(BM_coloringDSaturAcyclicGraph)->DenseRange(1, 8);
