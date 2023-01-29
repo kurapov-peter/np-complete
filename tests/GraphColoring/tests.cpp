@@ -46,7 +46,7 @@ TEST_F(ColoringTest, GreedyColoring) {
 }
 
 TEST_F(ColoringTest, DSaturColoring) {
-  for (auto &G: graphs_dsatur_) {
+  for (auto &G : graphs_dsatur_) {
     coloring::DSaturColoring(G);
     EXPECT_TRUE(G.checkColoring());
   }
