@@ -27,7 +27,7 @@ struct less<coloring::VertexInfo> {
 
 namespace coloring {
 
-void DSaturColoring(Graph& G) {
+void DSaturColoring(Graph &G) {
   size_t N = G.getNumVertices();
 
   // Mark which colors are Used and which are not.
