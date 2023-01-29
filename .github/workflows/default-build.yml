@@ -37,21 +37,23 @@ jobs:
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
       
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.2
+    - name: Cache
+      uses: actions/cache@v3.2.3
+      id: build-data
       with:
-        name: build-artifacts
-        path: .
-        if-no-files-found: error
+        path: ${{github.workspace}}
+        key: artifacts-${{ github.run_id }}-${{ github.run_number }}
       
   test:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v3.0.2
+    - name: Cache
+      uses: actions/cache@v3.2.3
+      id: build-data
       with:
-        name: build-artifacts
+        path: ${{github.workspace}}
+        key: artifacts-${{ github.run_id }}-${{ github.run_number }}
         
     - name: Test
       working-directory: ${{github.workspace}}/build
